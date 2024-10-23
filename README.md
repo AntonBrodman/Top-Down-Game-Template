@@ -1,0 +1,2 @@
+# Game-template
+MAP
