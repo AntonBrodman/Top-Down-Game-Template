@@ -9,7 +9,10 @@ using UnityEngine.UI;
 public class PlayerStamina : MonoBehaviour
 {
     public Slider staminaSlider;
-    public float maxStamina = 100f;
+    public PlayerStats stats;
+    [HideInInspector]
+    public float maxStamina ;
+
     public float stamina;
     public float minStamina = 20f;
 
@@ -22,6 +25,7 @@ public class PlayerStamina : MonoBehaviour
 
     void Start()
     {
+        maxStamina = stats.Stamina;
         stamina = maxStamina;
     }
 

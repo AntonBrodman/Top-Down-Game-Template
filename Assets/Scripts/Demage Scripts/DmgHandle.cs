@@ -5,27 +5,25 @@ using UnityEngine;
 
 public class DmgHandle : MonoBehaviour
 {
-    public float dmg = 50f;
-    // Start is called before the first frame update
+    public float damage;
+    public Collider2D weaponCollider;
+    public AttackTiming timing;
     void Start()
     {
-
+        weaponCollider = GetComponentInChildren<Collider2D>();
+        damage = timing.damage;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("hit");
-        //PlayerHealth health
-        //PlayerHealth health
-        PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
+
+        Health health = collision.gameObject.GetComponent<Health>();
+        print(health);
         if (health != null)
         {
-            health.TakeDamage(dmg);
+            health.TakeDamage(damage);
         }
 
     }

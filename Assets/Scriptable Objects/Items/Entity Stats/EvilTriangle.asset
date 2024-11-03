@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98364d42980902348b5ab5351adfc6c4, type: 3}
-  m_Name: Player Statistics
+  m_Script: {fileID: 11500000, guid: 13567b6514826334f8fdc7e7277f3aaf, type: 3}
+  m_Name: EvilTriangle
   m_EditorClassIdentifier: 
-  Health: 400
-  Stamina: 100
-  Strenght: 0
-  Dexterity: 0
+  EntityName: Trion
+  Health: 145
   PhysicalRes: 0
+  patrolSpeed: 0.5
+  chaseSpeed: 3
+  attackDistance: 0

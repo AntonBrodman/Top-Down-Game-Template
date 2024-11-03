@@ -9,13 +9,16 @@ public class Attack : MonoBehaviour
     public WeaponSO weapons;
     public PlayerStamina stamina;
     public float weaponStamCost;
-
+    public GameObject weapon;
+    private Collider2D weaponCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         WeaponAnimator = GetComponentInChildren<Animator>();
         weaponStamCost = weapons.staminaCost;
+        weaponCollider = weapon.GetComponent<Collider2D>();
+        weaponCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -33,6 +36,8 @@ public class Attack : MonoBehaviour
 
         isAttacking = true;
         //rb.velocity = movement * 0f;
+        weaponCollider.enabled = true;
+
         switch (weapons.weaponType)
         {
             case "sword":
@@ -48,6 +53,7 @@ public class Attack : MonoBehaviour
         WeaponAnimator.SetTrigger("idle");
 
         yield return new WaitForSeconds(weapons.attackSpeed/2);
+        weaponCollider.enabled = false;
 
         isAttacking = false;
 

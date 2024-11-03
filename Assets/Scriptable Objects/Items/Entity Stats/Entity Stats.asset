@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c94eed8b9ad2b6439ba8de5c6375d99, type: 3}
-  m_Name: NeonSpear
+  m_Script: {fileID: 11500000, guid: 7150852a7ab233a4b9d15bb74b58db45, type: 3}
+  m_Name: Entity Stats
   m_EditorClassIdentifier: 
-  itemName: 
-  itemSprite: {fileID: 0}
-  demage: 10
-  staminaCost: 40
-  attackSpeed: 0.8
-  weaponType: spear
+  EntityName: 
+  Health: 0
+  PhysicalRes: 0
+  patrolSpeed: 0
+  chaseSpeed: 0
+  type: 1

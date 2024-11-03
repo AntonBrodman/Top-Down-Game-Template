@@ -5,28 +5,24 @@ using UnityEngine;
 
 public class Heal : MonoBehaviour
 {
-    public float healDuration;
-    public float healValue; // maybe put this into some scriptable object
-    public float healMovementSpeed;
 
-
-
+    public Health healthScript;
+    public PlayerStats stats;
     public PlayerMovement playerMovement;
+    [HideInInspector]
 
-
-    //private Rigidbody2D rb;
     public bool isHealing;
-    // Start is called before the first frame update
-    void Start()
+    [HideInInspector]
+    public float healDuration;
+    [HideInInspector]
+    public float healValue = 40f;
+    [HideInInspector]
+    public float healMovementSpeed;
+    private void Start()
     {
-        //rb = GetComponent<Rigidbody2D>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        healDuration = stats.healDuration;
+        healValue = stats.healValue;
+        healMovementSpeed = stats.healMovementSpeed;
     }
     public void StartHealCoroutine() {
         StartCoroutine(HealAction());
@@ -38,13 +34,20 @@ public class Heal : MonoBehaviour
         //playerMovement.moveSpeed = healMovementSpeed;
 
         //playerMovement.rb.velocity = playerMovement.movement * healMovementSpeed;
-        //    rb.velocity = movement * healSpeed;
+        //rb.velocity = movement * healSpeed;
 
 
         yield return new WaitForSeconds(healDuration);
-        PlayerHealth playerHealth = gameObject.GetComponent<PlayerHealth>();
+        //Health playerHealth = gameObject.GetComponent<Health>();
 
-        playerHealth.Heal(healValue);
+        healthScript.health += healValue;
+        if(healthScript.health >= healthScript.entityStats.Health)
+        {
+            healthScript.health = healthScript.entityStats.Health;
+        }
+        //print(healthScript.health);
+
+        //playerHealth.Heal(healValue);
 
         yield return new WaitForSeconds(healDuration);
         //playerMovement.moveSpeed = 3f;

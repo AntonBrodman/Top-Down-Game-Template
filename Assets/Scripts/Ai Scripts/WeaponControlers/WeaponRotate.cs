@@ -6,14 +6,16 @@ using static UnityEngine.GraphicsBuffer;
 
 public class WeaponRotate : MonoBehaviour
 {
-    public Transform Player;
-    public float AttackRange = 2f;
+    private Transform Player;
+    public float AttackRange;
+    public EnemyStats stats;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        AttackRange = stats.attackDistance;
     }
     void Update()
     {
