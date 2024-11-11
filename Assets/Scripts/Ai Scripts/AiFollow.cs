@@ -38,11 +38,7 @@ public class AiFollow : MonoBehaviour
         if (Player == null) return;  // Ensure Player is found before continuing
         float distance = Vector2.Distance(transform.position, Player.position);
 
-        Patrol();
-        if (hasLineOfSight)
-        {
-            
-        }
+        Chase();
     }
     void StateManager(states s)
     {

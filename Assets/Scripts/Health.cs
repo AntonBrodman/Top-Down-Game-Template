@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
         health = entityStats.Health;
         healthSlider.maxValue = entityStats.Health;
         //gameObject = 
-        print(gameObject.tag);
+        //print(gameObject.tag);
     }
 
     // Update is called once per frame
