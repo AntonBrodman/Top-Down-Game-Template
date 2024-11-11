@@ -15,6 +15,6 @@ MonoBehaviour:
   EntityName: Trion
   Health: 145
   PhysicalRes: 0
-  patrolSpeed: 0.5
+  patrolSpeed: 1
   chaseSpeed: 3
   attackDistance: 0

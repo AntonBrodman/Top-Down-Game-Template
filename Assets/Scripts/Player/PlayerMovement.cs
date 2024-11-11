@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         //PlayerStamina stamina = gameObject.GetComponent<PlayerStamina>();
 
 // pass animation to child
-Collider = GetComponent<Collider2D>();
+        Collider = GetComponent<Collider2D>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 

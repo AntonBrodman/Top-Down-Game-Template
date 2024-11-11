@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEditorInternal;
 
 public class AiFollow : MonoBehaviour
 {
@@ -33,18 +32,9 @@ public class AiFollow : MonoBehaviour
     void Update()
     {
         if (Player == null) return;  // Ensure Player is found before continuing
+        float distance = Vector2.Distance(transform.position, Player.position);
+
         Patrol();
-        //float distance = Vector2.Distance(transform.position, Player.position);
-
-        //if (distance < AttackRange)
-        //{
-        //    Passive();
-        //}
-        //else
-        //{
-        //    ChaseTarget();
-        //}
-
         //if (distance > AttackRange)
         //{
         //    ChaseTarget();
@@ -63,7 +53,7 @@ public class AiFollow : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, Player.position, EnemySpeed * Time.deltaTime);
     }
 
-    void Passive() // running from palayer
+    void Passive() // keeping distance from palayer
     {
         
         Vector2 directionToPlayer = Player.position - transform.position;
@@ -84,7 +74,10 @@ public class AiFollow : MonoBehaviour
             }
         }
     }
+    void Search()
+    {
 
+    }
     private IEnumerator RandomNuber()
     {
         while (true)
