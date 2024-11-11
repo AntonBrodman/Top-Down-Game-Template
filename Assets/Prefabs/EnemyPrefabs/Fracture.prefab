@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 1880842126}
   - component: {fileID: 1880842133}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Fracture
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -402,7 +402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: d5a263532917c944cb2adc613999d1fa, type: 2}
-  EnemySpeed: 2
+  patrolSpeed: 0
+  chaseSpeed: 0
   AttackRange: 5
   SwordRange: 4
   SpearRange: 5

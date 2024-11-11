@@ -9,7 +9,8 @@ public class AiFollow : MonoBehaviour
     public EnemyStats stats;
     private Transform Player;  // Changed from public to private
     //[HideInInspector]
-    public float EnemySpeed;
+    public float patrolSpeed;
+    public float chaseSpeed;
     public float AttackRange = 2f;
     public float SwordRange = 4f;
     public float SpearRange = 6f;
@@ -18,6 +19,8 @@ public class AiFollow : MonoBehaviour
     public AttackCollision attackCollision;
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
+    private bool hasLineOfSight = false;
+    public enum states{Patrol, Chase, Passive, Search, Combat };
 
 
     // Start is called before the first frame update
@@ -25,7 +28,8 @@ public class AiFollow : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        EnemySpeed = stats.patrolSpeed;
+        patrolSpeed = stats.patrolSpeed;
+        chaseSpeed = stats.chaseSpeed;
     }
 
     // Update is called once per frame
@@ -35,36 +39,42 @@ public class AiFollow : MonoBehaviour
         float distance = Vector2.Distance(transform.position, Player.position);
 
         Patrol();
-        //if (distance > AttackRange)
-        //{
-        //    ChaseTarget();
-        //}
-        //else
-        //{
-        //    animator.SetTrigger("Swipe");
-        //}
+        if (hasLineOfSight)
+        {
+            
+        }
+    }
+    void StateManager(states s)
+    {
+
+        //switch(s)
     }
     void Combat()
     {
 
     }
-    void ChaseTarget()
+    void Chase()
     {
-        transform.position = Vector2.MoveTowards(transform.position, Player.position, EnemySpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, Player.position, chaseSpeed * Time.deltaTime);
     }
+    void Idle()
+    {
 
-    void Passive() // keeping distance from palayer
+    }
+     // keeping distance from palayer
+    void Passive()
     {
         
         Vector2 directionToPlayer = Player.position - transform.position;
         Vector2 moveDirection = -directionToPlayer.normalized;
-        transform.Translate(moveDirection * EnemySpeed * Time.deltaTime);
+        transform.Translate(moveDirection * (patrolSpeed * 0.5f) * Time.deltaTime);
     }
     void Patrol() // from point to point repeating
     {
+        Passive();
         if (waypoints.Length == 0) return;
         Transform targetWaypoint = waypoints[currentWaypointIndex];
-        transform.position = Vector2.MoveTowards(transform.position, targetWaypoint.position, EnemySpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetWaypoint.position, patrolSpeed * Time.deltaTime);
         if (Vector2.Distance(transform.position, targetWaypoint.position) < 0.1f)
         {
             currentWaypointIndex++;
