@@ -8,6 +8,9 @@ public class DmgHandle : MonoBehaviour
     public float damage;
     public Collider2D weaponCollider;
     public AttackTiming timing;
+
+
+
     void Start()
     {
         weaponCollider = GetComponentInChildren<Collider2D>();
