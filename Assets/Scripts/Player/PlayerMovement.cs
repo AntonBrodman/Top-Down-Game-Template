@@ -160,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
         else if (attack.isAttacking)
         {
             rb.velocity = movement * 0f;
-            print("stop");
+            //print("stop");
         }
        // rb.velocity = movement * moveSpeed;
         
@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            print("no renderer");
+            //print("no renderer");
         }
 
         Collider.enabled = false;

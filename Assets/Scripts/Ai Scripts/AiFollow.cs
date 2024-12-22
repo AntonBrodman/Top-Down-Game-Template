@@ -19,7 +19,7 @@ public class AiFollow : MonoBehaviour
     public AttackCollision attackCollision;
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
-    private bool hasLineOfSight = false;
+    //private bool hasLineOfSight = false;
     public enum states{Patrol, Chase, Passive, Search, Combat };
 
 

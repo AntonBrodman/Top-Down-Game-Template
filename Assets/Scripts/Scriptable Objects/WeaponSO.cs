@@ -7,12 +7,16 @@ using UnityEngine;
 public class WeaponSO : ScriptableObject
 {
     public string itemName;
-    public Sprite itemSprite;
-    public float demage;
+    public float damage;
     public float staminaCost;
-    public float attackSpeed;
-    public string weaponType;
+    public float S_1_D;
+    public float S_1_R;
+    public float S_2_D;
+    public float S_2_R;
 
-    //public bool isEquided;
-    //public bool isOwned;
 }
+
+
+
+
+
