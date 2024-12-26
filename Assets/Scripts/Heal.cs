@@ -8,7 +8,7 @@ public class Heal : MonoBehaviour
 
     public Health healthScript;
     public PlayerStats stats;
-    public PlayerMovement playerMovement;
+    public PlayerMovementOld playerMovement;
     [HideInInspector]
 
     public bool isHealing;

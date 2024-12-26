@@ -2,7 +2,7 @@ using System.Collections;
 using System.ComponentModel;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementOld : MonoBehaviour
 {
     public float moveSpeed = 0f;
     public float dashSpeed = 20f;
@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     private Animator PlayerAnimator;
-    private Animator WeaponAnimator;
     private Collider2D Collider;
     private SpriteRenderer SpriteRenderer;
     public Vector2 movement;
@@ -40,10 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         PlayerAnimator = GetComponent<Animator>();
-        WeaponAnimator = GetComponentInChildren<Animator>();
-        //PlayerStamina stamina = gameObject.GetComponent<PlayerStamina>();
 
-// pass animation to child
         Collider = GetComponent<Collider2D>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -61,8 +57,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetAxisRaw("Horizontal") == -1f)
         {
-            // global moveSpeed ;D ?????
-
             if (!facingLeft)
             {
                 moveSpeed = 2f;
@@ -95,13 +89,6 @@ public class PlayerMovement : MonoBehaviour
         {
             facingLeft = false;
         }
-
-        //if (Input.GetKeyDown(KeyCode.R) && !isHealing && healCharges > 0)
-        //{
-        //    StartCoroutine(HealAction());
-        //    PlayerAnimator.SetTrigger("healTrigger");
-        //}
-
         if (Input.GetKeyDown(KeyCode.B) && canDash && !isHealing)
         {
             //PlayerStamina stamina = gameObject.GetComponent<PlayerStamina>();
@@ -136,12 +123,6 @@ public class PlayerMovement : MonoBehaviour
                 //PlayerAnimator.SetTrigger("RollRight");
             }
         }
-
-        //if (Input.GetKeyDown(KeyCode.Mouse0))
-        //{
-
-        //    StartCoroutine(Attack());
-        //}
     }
 
     void FixedUpdate()
@@ -197,42 +178,4 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
-
-    //private IEnumerator HealAction()
-    //{
-    //    isHealing = true;
-    //    rb.velocity = movement * healSpeed;
-
-    //    yield return new WaitForSeconds(healDuration);
-    //    PlayerHealth playerHealth = gameObject.GetComponent<PlayerHealth>();
-    //    playerHealth.Heal(healValue);
-    //    print("heal");
-
-    //    yield return new WaitForSeconds(healDuration);
-    //    isHealing = false;
-    //    healCharges -= 1;
-    //}
-    //private IEnumerator Attack()
-    //{
-    //    isHealing = true;
-    //    rb.velocity = movement * 0f;
-        
-    //    yield return new WaitForSeconds(weapons.attackSpeed);
-
-    //    switch (weapons.weaponType)
-    //    {
-    //        case "sword":
-    //            WeaponAnimator.SetTrigger("swordAttack");
-
-    //            break;
-    //        case "spear":
-    //            WeaponAnimator.SetTrigger("spearAttack");
-    //            break;
-    //    }
-    //    yield return new WaitForSeconds(weapons.attackSpeed);
-
-    //    WeaponAnimator.SetTrigger("idle");
-    //    isHealing = false;
-
-    //}
 }

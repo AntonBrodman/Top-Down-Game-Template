@@ -14,7 +14,8 @@ public class PlayerStats : EntityStats
 
 
     // constant stats
-    public float moveSpeed = 3f;
+    public float walkSpeed = 1f;
+    public float sprintSpeed = 3f;
     public float dashSpeed = 20f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;

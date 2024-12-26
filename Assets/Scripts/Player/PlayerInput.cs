@@ -11,7 +11,7 @@ public class PlayerInput : MonoBehaviour
 {
     //public Heal playerHeal;
     public Attack attack;
-    public PlayerMovement playerMovement;
+    //public PlayerMovement playerMovement;
     public PlayerStamina stamina;
     public Heal heal;
 

@@ -1663,13 +1663,13 @@ GameObject:
   - component: {fileID: 1330014059}
   - component: {fileID: 1330014060}
   - component: {fileID: 1330014063}
-  - component: {fileID: 1330014061}
   - component: {fileID: 1330014066}
   - component: {fileID: 1330014065}
   - component: {fileID: 1330014064}
   - component: {fileID: 1330014067}
   - component: {fileID: 1330014068}
   - component: {fileID: 1330014069}
+  - component: {fileID: 1330014070}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1685,7 +1685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330014057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.99, y: 2.57, z: 0}
+  m_LocalPosition: {x: -10.25, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1731,33 +1731,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1330014061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330014057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04d29fc5e30354849ac070d1eb1783b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  dashSpeed: 10
-  dashDuration: 0.2
-  healDuration: 1
-  dashCooldown: 0.1
-  rollCost: 30
-  healValue: 40
-  healSpeed: 0
-  healCharges: 7
-  weapons: {fileID: 11400000, guid: ea72360d0c2a0344aaa2a6af8fe3eea1, type: 2}
-  heal: {fileID: 1330014065}
-  attack: {fileID: 1330014064}
-  rb: {fileID: 1330014060}
-  movement: {x: 0, y: 0}
-  stamina: {fileID: 1330014063}
 --- !u!114 &1330014063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,7 +1782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthScript: {fileID: 1330014067}
   stats: {fileID: 11400000, guid: cfd38e936765ec74a947ae115bad42a6, type: 2}
-  playerMovement: {fileID: 1330014061}
+  playerMovement: {fileID: 0}
   isHealing: 0
   healDuration: 0.5
   healValue: 100
@@ -1827,7 +1800,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 1330014064}
-  playerMovement: {fileID: 1330014061}
   stamina: {fileID: 1330014063}
   heal: {fileID: 1330014065}
   healCharges: 7
@@ -1876,6 +1848,19 @@ MonoBehaviour:
   weapons:
   - {fileID: 11400000, guid: c44f62545e2d76f4d9bd33109355c179, type: 2}
   activeWeapon: {fileID: 11400000, guid: c44f62545e2d76f4d9bd33109355c179, type: 2}
+--- !u!114 &1330014070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330014057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa42da3ac9b27914c8b922f30d20430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerStats: {fileID: 11400000, guid: cfd38e936765ec74a947ae115bad42a6, type: 2}
 --- !u!1 &1349871560
 GameObject:
   m_ObjectHideFlags: 0

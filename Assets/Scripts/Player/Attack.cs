@@ -74,7 +74,7 @@ public class Attack : MonoBehaviour
                     break;
             }
         }
-        print(S_1_R);
+        //print(S_1_R);
         isAttacking = true;
         //rb.velocity = movement * 0f;
         weaponCollider.enabled = true;
@@ -82,11 +82,11 @@ public class Attack : MonoBehaviour
         yield return new WaitForSeconds(S_1_D);
         recovering = true;
         weaponCollider.enabled = false;
-        print("can follow up");
+        //print("can follow up");
   
 
         yield return new WaitForSeconds(S_1_R);
-        print("end of attack");
+        //print("end of attack");
 
         recovering = false;
         isAttacking = false;
