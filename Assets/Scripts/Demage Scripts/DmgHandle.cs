@@ -14,9 +14,9 @@ public class DmgHandle : MonoBehaviour
 
     void Start()
     {
-        weaponCollider = GetComponent<Collider2D>();
+        weaponCollider = GetComponentInChildren<Collider2D>();
         damage = weapon.damage;
-
+        print("damage: " +damage);
     }
     void Update()
     {
@@ -24,30 +24,32 @@ public class DmgHandle : MonoBehaviour
         {
             hit = false;
         }
-        //print(movement.isAttacking);
+        //print("hit: " + hit + " || isAttacking: "+ !movement.isAttacking);
     }
 
     void OnTriggerStay2D(Collider2D collision)
     {
         //print("entered" + movement.isAttacking + !hit);
-        print(collision.tag);
-
+        
         if (movement.isAttacking && !hit)
         {
             hit = true;
+            print("boom");
 
             if (collision.CompareTag("Enemy"))
             {
+                print("collision");
                 Health health = collision.gameObject.GetComponent<Health>();
                 //print(health);
                 if (health != null)
                 {
+                    print(damage + " hit");
                     health.TakeDamage(damage);
                 }
             }
             else
             {
-                print("Collided object is not tagged as Enemy.");
+                // not an enemy
             }
         }
     }

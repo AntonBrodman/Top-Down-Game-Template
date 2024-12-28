@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c94eed8b9ad2b6439ba8de5c6375d99, type: 3}
-  m_Name: Sword
+  m_Name: River
   m_EditorClassIdentifier: 
   itemName: River
-  damage: 65
+  damage: 58
   staminaCost: 30
   S_1_D: 0.5
   S_1_R: 0.5

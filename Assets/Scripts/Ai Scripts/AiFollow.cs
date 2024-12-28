@@ -39,7 +39,7 @@ public class AiFollow : MonoBehaviour
         if (Player == null) return;  // Ensure Player is found before continuing
         float distance = Vector2.Distance(transform.position, Player.position);
 
-        Chase();
+        Follow();
     }
     void StateManager(states s)
     {
@@ -50,11 +50,17 @@ public class AiFollow : MonoBehaviour
     {
 
     }
-    void Chase()
+    void Follow()
     {
 
         Vector2 direction = (Player.position - transform.position).normalized;
         Rigidbody2D.velocity = direction * patrolSpeed;
+    }
+    void Chase()
+    {
+
+        Vector2 direction = (Player.position - transform.position).normalized;
+        Rigidbody2D.velocity = direction * chaseSpeed;
     }
 
     void Idle()
@@ -67,7 +73,7 @@ public class AiFollow : MonoBehaviour
         
         Vector2 directionToPlayer = Player.position - transform.position;
         Vector2 moveDirection = -directionToPlayer.normalized;
-        transform.Translate(moveDirection * (patrolSpeed * 0.5f) * Time.deltaTime);
+        Rigidbody2D.velocity = moveDirection * (patrolSpeed/2);
     }
     void Patrol() // from point to point repeating
     {
