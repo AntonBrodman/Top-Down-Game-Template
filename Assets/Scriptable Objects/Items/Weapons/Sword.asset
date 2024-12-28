@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   itemName: River
-  damage: 105
+  damage: 65
   staminaCost: 30
   S_1_D: 0.5
   S_1_R: 0.5

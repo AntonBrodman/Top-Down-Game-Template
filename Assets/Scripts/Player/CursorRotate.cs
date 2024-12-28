@@ -21,18 +21,18 @@ public class CursorRotate : MonoBehaviour
 
         // Apply the rotation to the object
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        if(cursorDirection.x > 0)
+        if (cursorDirection.x < 0)
         {
             //right from player
 
-            transform.localScale = new Vector3(transform.localScale.x,-Mathf.Abs(transform.localScale.y), transform.localScale.z);
+            transform.localScale = new Vector3(transform.localScale.x, -Mathf.Abs(transform.localScale.y), transform.localScale.z);
 
             // transform y to negative
         }
         else
         {
             //left from player
-            transform.localScale = new Vector3(transform.localScale.x,Mathf.Abs(transform.localScale.y), transform.localScale.z);
+            transform.localScale = new Vector3(transform.localScale.x, Mathf.Abs(transform.localScale.y), transform.localScale.z);
         }
 
     }

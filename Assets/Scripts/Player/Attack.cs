@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour
     private float S_1_R;
     private float S_2_D;
     private float S_2_R;
-    private float opening = 0.5f;
+    //private float opening = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -52,40 +52,40 @@ public class Attack : MonoBehaviour
 
         if (!isAttacking)
         {
-            switch (attackType)
-            {
-                case AttackType.S_1:
-                    WeaponAnimator.SetTrigger("S_1");
+            //switch (attackType)
+            //{
+            //    case AttackType.S_1:
+            //        WeaponAnimator.SetTrigger("S_1");
 
-                    break;
+            //        break;
 
-                case AttackType.S_2:
-                    WeaponAnimator.SetTrigger("S_2");
+            //    case AttackType.S_2:
+            //        WeaponAnimator.SetTrigger("S_2");
 
-                    break;
-                case AttackType.S_H:
-                    WeaponAnimator.SetTrigger("S_H");
+            //        break;
+            //    case AttackType.S_H:
+            //        WeaponAnimator.SetTrigger("S_H");
 
-                    break;
+            //        break;
 
-                case AttackType.S_R:
-                    WeaponAnimator.SetTrigger("S_R");
+            //    case AttackType.S_R:
+            //        WeaponAnimator.SetTrigger("S_R");
 
-                    break;
-            }
+            //        break;
+            //}
         }
         //print(S_1_R);
         isAttacking = true;
         //rb.velocity = movement * 0f;
         weaponCollider.enabled = true;
 
-        yield return new WaitForSeconds(S_1_D);
+        yield return new WaitForSeconds(0.05f);
         recovering = true;
         weaponCollider.enabled = false;
         //print("can follow up");
   
 
-        yield return new WaitForSeconds(S_1_R);
+        yield return new WaitForSeconds(0.05f);
         //print("end of attack");
 
         recovering = false;

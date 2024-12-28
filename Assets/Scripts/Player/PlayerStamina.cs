@@ -63,7 +63,8 @@ public class PlayerStamina : MonoBehaviour
     }
     private IEnumerator StaminaCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+
+        yield return new WaitForSeconds(0.5f);
         coroutineRunning = false;
     }
 }

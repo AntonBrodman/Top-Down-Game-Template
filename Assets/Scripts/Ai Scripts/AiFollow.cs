@@ -19,6 +19,7 @@ public class AiFollow : MonoBehaviour
     public AttackCollision attackCollision;
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
+    private Rigidbody2D Rigidbody2D;
     //private bool hasLineOfSight = false;
     public enum states{Patrol, Chase, Passive, Search, Combat };
 
@@ -27,7 +28,7 @@ public class AiFollow : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        Rigidbody2D = GetComponent<Rigidbody2D>();
         patrolSpeed = stats.patrolSpeed;
         chaseSpeed = stats.chaseSpeed;
     }
@@ -51,8 +52,11 @@ public class AiFollow : MonoBehaviour
     }
     void Chase()
     {
-        transform.position = Vector2.MoveTowards(transform.position, Player.position, chaseSpeed * Time.deltaTime);
+
+        Vector2 direction = (Player.position - transform.position).normalized;
+        Rigidbody2D.velocity = direction * patrolSpeed;
     }
+
     void Idle()
     {
 

@@ -216,13 +216,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4608046740522566777}
+  - component: {fileID: 1880842133}
   - component: {fileID: 818564991613231711}
   - component: {fileID: 818564991613231709}
   - component: {fileID: 818564991613231708}
   - component: {fileID: 818564991613231683}
   - component: {fileID: 1164508574543547414}
   - component: {fileID: 1880842126}
-  - component: {fileID: 1880842133}
   m_Layer: 0
   m_Name: Fracture
   m_TagString: Enemy
@@ -252,6 +252,27 @@ RectTransform:
   m_AnchoredPosition: {x: -6, y: 0}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!50 &1880842133
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818564991613231704}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!212 &818564991613231711
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -391,30 +412,8 @@ MonoBehaviour:
   attackStart: 0
   attackDuration: 0
   demage: 0
-  attackInfo: {fileID: 11400000, guid: a94421ed75bb967469764be6cd279016, type: 2}
   weapon: {fileID: 818564991726573834}
   attacking: 0
---- !u!50 &1880842133
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818564991613231704}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &818564991726573834
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +530,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   weaponCollider: {fileID: 0}
-  timing: {fileID: 11400000, guid: a94421ed75bb967469764be6cd279016, type: 2}
+  weapon: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!1 &2541241710790018690
 GameObject:
   m_ObjectHideFlags: 0
