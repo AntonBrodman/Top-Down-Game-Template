@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c94eed8b9ad2b6439ba8de5c6375d99, type: 3}
   m_Name: Sky
   m_EditorClassIdentifier: 
-  itemName: 
-  damage: 0
-  staminaCost: 0
-  S_1_D: 0
-  S_1_R: 0
-  S_2_D: 0
-  S_2_R: 0
+  itemName: Sky
+  damage: 70
+  staminaCost: 40
+  weaponPrefab: {fileID: 4107396341051952157, guid: 6be9f0ee35b1f6147b69fa57d0320e12, type: 3}
+  Sprite: {fileID: 21300000, guid: 20662ab5a567dfe45a15850c5cf4d015, type: 3}

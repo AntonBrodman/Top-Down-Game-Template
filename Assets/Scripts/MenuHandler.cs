@@ -9,6 +9,7 @@ public class MenuHandler : MonoBehaviour
 
     private bool isMenuActive = false;
     private bool isBackpackActive = false;
+    public bool uiIsOpen = false;
 
     void Start()
     {
@@ -29,6 +30,15 @@ public class MenuHandler : MonoBehaviour
         {
             ToggleBackpack();
         }
+        if(isMenuActive || isBackpackActive)
+        {
+            uiIsOpen = true;
+        }
+        else
+        {
+            uiIsOpen = false;
+        }
+        //Debug.Log(uiIsOpen);
     }
 
     void ToggleMenu()
@@ -37,12 +47,19 @@ public class MenuHandler : MonoBehaviour
         isMenuActive = !isMenuActive;
         menuPanel.SetActive(isMenuActive);
 
-        // Optional: Pause the game when the menu is active
-        //Time.timeScale = isMenuActive ? 0f : 1f;
     }
     void ToggleBackpack()
     {
         isBackpackActive = !isBackpackActive;
         backpack.SetActive(isBackpackActive);
     }
+    void LoadArmors()
+    {
+        print("load armors");
+    }
+    void LoadWeapons()
+    {
+        print("load weapons");
+    }
 }
+

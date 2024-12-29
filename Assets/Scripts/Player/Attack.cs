@@ -26,10 +26,10 @@ public class Attack : MonoBehaviour
     void Start()
     {
         //print(items.activeWeapon);
-        S_1_D = items.activeWeapon.S_1_D;
-        S_1_R = items.activeWeapon.S_1_R;
-        S_2_D = items.activeWeapon.S_2_D;
-        S_2_R = items.activeWeapon.S_2_R;
+        //S_1_D = items.activeWeapon.S_1_D;
+        //S_1_R = items.activeWeapon.S_1_R;
+        //S_2_D = items.activeWeapon.S_2_D;
+        //S_2_R = items.activeWeapon.S_2_R;
         WeaponAnimator = GetComponentInChildren<Animator>();
         //weaponStamCost = weapons.staminaCost;
         weaponCollider = weapon.GetComponent<Collider2D>();

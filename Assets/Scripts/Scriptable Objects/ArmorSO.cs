@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Weapon", menuName = "Item/Weapon")]
+[CreateAssetMenu(fileName = "New Armor", menuName = "Item/Armor")]
 
-public class WeaponSO : ScriptableObject
+public class ArmorSO : ScriptableObject
 {
     public string itemName;
-    public float damage;
-    public float staminaCost;
-    public GameObject weaponPrefab;
+    public float phyRed;
+    public float eleRed;
+    //public GameObject weaponPrefab;
     public Sprite Sprite;
     //public float S_1_D;
     //public float S_1_R;

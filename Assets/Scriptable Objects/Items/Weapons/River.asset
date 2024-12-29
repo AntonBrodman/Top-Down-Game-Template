@@ -15,7 +15,5 @@ MonoBehaviour:
   itemName: River
   damage: 58
   staminaCost: 30
-  S_1_D: 0.5
-  S_1_R: 0.5
-  S_2_D: 0.25
-  S_2_R: 0.42
+  weaponPrefab: {fileID: 4199079639121996367, guid: d0df5b4bc153b6345bb76ffe536d3c19, type: 3}
+  Sprite: {fileID: 21300000, guid: 980723ea01351664f84677e1af9b551e, type: 3}
