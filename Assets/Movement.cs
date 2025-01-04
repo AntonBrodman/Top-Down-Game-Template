@@ -24,7 +24,6 @@ public class Movement : MonoBehaviour
     {
         walkSpeed = PlayerStats.walkSpeed;
         sprintSpeed = PlayerStats.sprintSpeed;
-        print(walkSpeed);
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Animator = GetComponentInChildren<Animator>();
         PlayerStamina = GetComponent<PlayerStamina>();

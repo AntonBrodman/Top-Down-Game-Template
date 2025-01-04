@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DmgHandle : MonoBehaviour
+public class PlayerDamage : MonoBehaviour
 {
     public float damage;
     public Collider2D weaponCollider;
@@ -14,9 +14,14 @@ public class DmgHandle : MonoBehaviour
 
     void Start()
     {
-        weaponCollider = GetComponentInChildren<Collider2D>();
+        Setter();
+    }
+    public void Setter()
+    {
+        weaponCollider = GetComponent<Collider2D>();
+        movement = GetComponentInParent<Movement>();
         damage = weapon.damage;
-        print("damage: " +damage);
+        //print("damage: " +damage);
     }
     void Update()
     {
@@ -24,23 +29,16 @@ public class DmgHandle : MonoBehaviour
         {
             hit = false;
         }
-        //print("hit: " + hit + " || isAttacking: "+ !movement.isAttacking);
     }
 
     void OnTriggerStay2D(Collider2D collision)
-    {
-        //print("entered" + movement.isAttacking + !hit);
-        
+    {        
         if (movement.isAttacking && !hit)
         {
             hit = true;
-            print("boom");
-
             if (collision.CompareTag("Enemy"))
             {
-                print("collision");
                 Health health = collision.gameObject.GetComponent<Health>();
-                //print(health);
                 if (health != null)
                 {
                     print(damage + " hit");
@@ -52,6 +50,10 @@ public class DmgHandle : MonoBehaviour
                 // not an enemy
             }
         }
+    }
+    public void SetParent()
+    {
+
     }
 
 

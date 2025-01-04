@@ -40,19 +40,19 @@ public class LoadItems : MonoBehaviour
     void AddPanel(WeaponSO item)
     {
         GameObject newPanel = Instantiate(panelPrefab, transform);
-        newPanel.name = item.name;
-
+        newPanel.name = item.id.ToString();
+        
         TextMeshProUGUI panelText = newPanel.GetComponentInChildren<TextMeshProUGUI>();
         Image image = newPanel.GetComponentInChildren<Image>();
 
         if (panelText != null)
         {
-            panelText.text = item.name; 
+            panelText.text = item.name + item.id; 
         }
 
         if (image != null)
         {
-            image.sprite = item.Sprite; 
+            image.sprite = item.WeaponIcon; 
         }
 
     }

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: River
   m_EditorClassIdentifier: 
   itemName: River
+  id: 10
   damage: 58
   staminaCost: 30
-  weaponPrefab: {fileID: 4199079639121996367, guid: d0df5b4bc153b6345bb76ffe536d3c19, type: 3}
-  Sprite: {fileID: 21300000, guid: 980723ea01351664f84677e1af9b551e, type: 3}
+  WeaponPrefab: {fileID: 4199079639121996367, guid: d0df5b4bc153b6345bb76ffe536d3c19, type: 3}
+  WeaponSprite: {fileID: 0}
+  WeaponIcon: {fileID: 21300000, guid: e7d5b6a9e8d8eb045846d2c9cc86064c, type: 3}

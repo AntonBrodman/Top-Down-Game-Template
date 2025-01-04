@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,9 +10,10 @@ public class openInventory : MonoBehaviour
 {
     public GameObject ItemsPanel;
     public GameObject Inventory;
-    public GameObject weaponPoint;
-    public GameObject currentWeapon;
+    //public GameObject weaponPoint;
+    //public GameObject currentWeapon;
     public ItemHolder itemHolder;
+    public int ItemId;
     public enum buttonType
     {
         mainInventory,
@@ -21,7 +23,7 @@ public class openInventory : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
     public void OnButtonClick()
     {
@@ -33,35 +35,31 @@ public class openInventory : MonoBehaviour
                 break;
 
 
-            case buttonType.itemSelection:                
+            case buttonType.itemSelection:
                 GameObject weaponPoint = GameObject.Find("AnimationPoint");
-                
+
                 Transform childTransform = weaponPoint.transform.GetChild(0); // Gets the first child
                 itemHolder = weaponPoint.GetComponentInParent<ItemHolder>();
 
-                GameObject currentWeapon = childTransform.gameObject;
-                Destroy(currentWeapon);
-
-                //if (childTransform != null)
-                //{
-                //    break;
-                //}
-                //itemHolder.activeWeapon = itemHolder.weapons.Find(gameObject);
-                //print(itemHolder.activeWeapon + "  gay " + itemHolder.weapons);
+                //GameObject currentWeapon = childTransform.gameObject;
+                //Destroy(currentWeapon);
+                //print("id: " )
                 print("clicked: " + gameObject.name);
-
-                itemHolder.SwapWeapon(gameObject);
+                PlayerDamage PlayerDamage = GetComponent<PlayerDamage>();
+                //print(PlayerDamage.weapon.id);
+                ItemId = Int32.Parse(gameObject.name);
+                itemHolder.SwapWeapon(ItemId);
                 //print(itemHolder.activeWeapon + "  gay " + itemHolder.weapons);
-                
-                childTransform.parent = null;
-                
+
+                //childTransform.parent = null;
+
 
 
 
                 break;
 
         }
-            
+
 
     }
     void OpenItems()
@@ -69,5 +67,8 @@ public class openInventory : MonoBehaviour
         ItemsPanel.SetActive(true);
         Inventory.SetActive(false);
     }
-    
+    public void SetId(int id)
+    {
+        ItemId = id;
+    }
 }

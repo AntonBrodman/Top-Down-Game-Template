@@ -7,15 +7,12 @@ using UnityEngine;
 public class WeaponSO : ScriptableObject
 {
     public string itemName;
+    public int id;
     public float damage;
     public float staminaCost;
-    public GameObject weaponPrefab;
-    public Sprite Sprite;
-    //public float S_1_D;
-    //public float S_1_R;
-    //public float S_2_D;
-    //public float S_2_R;
-
+    public GameObject WeaponPrefab;
+    public Sprite WeaponSprite;
+    public Sprite WeaponIcon;
 }
 
 
