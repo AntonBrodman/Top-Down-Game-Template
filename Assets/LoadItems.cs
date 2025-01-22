@@ -13,11 +13,11 @@ public class LoadItems : MonoBehaviour
     public GameObject itemRenderer;
     public GameObject mainInventory;
     public GameObject weaponHolder;
-    private void Start()
-    {
-        Load();
+    //private void Start()
+    //{
+    //    Load();
         
-    }
+    //}
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -27,34 +27,44 @@ public class LoadItems : MonoBehaviour
 
         }
     }
-    void Load()
+    public void Load()
     {
+        // Remove all existing panels
+        ClearPanels();
+
+        // Add new panels based on the items
         foreach (var item in items.weapons)
         {
-            AddPanel(item); 
-            // add panel to holder of this script
+            AddPanel(item);
         }
-
-
     }
+
+    void ClearPanels()
+    {
+        // Iterate through all child objects of this transform and destroy them
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
     void AddPanel(WeaponSO item)
     {
         GameObject newPanel = Instantiate(panelPrefab, transform);
         newPanel.name = item.id.ToString();
-        
+
         TextMeshProUGUI panelText = newPanel.GetComponentInChildren<TextMeshProUGUI>();
         Image image = newPanel.GetComponentInChildren<Image>();
 
         if (panelText != null)
         {
-            panelText.text = item.name + item.id; 
+            panelText.text = item.name + item.id;
         }
 
         if (image != null)
         {
-            image.sprite = item.WeaponIcon; 
+            image.sprite = item.WeaponIcon;
         }
-
     }
 
 }

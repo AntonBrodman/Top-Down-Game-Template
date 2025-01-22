@@ -12,7 +12,7 @@ public class PlayerInput : MonoBehaviour
     //public Heal playerHeal;
     public Attack attack;
     //public PlayerMovement playerMovement;
-    public PlayerStamina stamina;
+    public Stamina stamina;
     public Heal heal;
 
 
@@ -51,11 +51,11 @@ public class PlayerInput : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftShift))
         {
             //print("light");
-            if (stamina.stamina > stamina.minStamina)   //stamina check
+            if (stamina.currentStamina > stamina.minStamina)   //stamina check
             {
                 if (stamina != null)
                 {
-                    stamina.StaminaDrain(attack.weaponStamCost);
+                    stamina.ConsumeStamina(attack.weaponStamCost);
                 }
                 if (attack.recovering)
                 {
@@ -86,11 +86,11 @@ public class PlayerInput : MonoBehaviour
         {
             //print(attakcType);
             //print(attack.canChain);
-            if (stamina.stamina > stamina.minStamina)   //stamina check
+            if (stamina.currentStamina > stamina.minStamina)   //stamina check
             {
                 if (stamina != null)
                 {
-                    stamina.StaminaDrain(attack.weaponStamCost);
+                    stamina.ConsumeStamina(attack.weaponStamCost);
                 }
 
             }

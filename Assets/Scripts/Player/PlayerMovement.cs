@@ -28,7 +28,7 @@ public class PlayerMovementOld : MonoBehaviour
     private bool isDashing = false;
     private bool isHealing = false;
     private bool canDash = true;
-    public PlayerStamina stamina;
+    public Stamina stamina;
 
 
     private bool facingLeft = true;
@@ -93,11 +93,11 @@ public class PlayerMovementOld : MonoBehaviour
         {
             //PlayerStamina stamina = gameObject.GetComponent<PlayerStamina>();
 
-            if (stamina.stamina > stamina.minStamina)
+            if (stamina.currentStamina > stamina.minStamina)
             {
                 if (stamina != null)
                 {
-                    stamina.StaminaDrain(rollCost);
+                    stamina.ConsumeStamina(rollCost);
                 }
 
             }

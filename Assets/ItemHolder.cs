@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ItemHolder : MonoBehaviour
 {
-    public WeaponSO[] weapons;
+    public List<WeaponSO> weapons = new List<WeaponSO>(); // Changed to List for dynamic addition
     public WeaponSO activeWeapon;
-    public ArmorSO [] armors;
+    public List<ArmorSO> armors = new List<ArmorSO>(); // Changed to List for dynamic addition
     public ArmorSO activeArmor;
     public Transform weaponPoint;
     public PlayerDamage playerDamage;
@@ -26,7 +26,6 @@ public class ItemHolder : MonoBehaviour
                 }
                 else
                 {
-
                     print(activeWeapon);
                     foreach (Transform child in weaponPoint.transform)
                     {
@@ -46,22 +45,13 @@ public class ItemHolder : MonoBehaviour
             }
         }
 
-        //print("Current active weapon: " + (activeWeapon != null ? activeWeapon.itemName : "None"));
+    }
+    public void AddItem(WeaponSO item)
+    {
 
-            //// Find the weapon in the array where the itemName matches the GameObject's name
-            //activeWeapon = System.Array.Find(weapons, w => w.itemName == weapon.name);
-
-            //if (activeWeapon != null)
-            //{
-            //    print("New active weapon: " + activeWeapon.itemName);
-            //}
-            //else
-            //{
-            //    print("No matching weapon found for: " + weapon.name);
-            //}
-            
-
-
+        
+        weapons.Add(item);
+        print(weapons);
     }
 }
 

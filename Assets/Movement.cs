@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
 {
     public PlayerStats PlayerStats;
     private Rigidbody2D Rigidbody2D;
-    private PlayerStamina PlayerStamina;
+    private Stamina PlayerStamina;
     private Health PlayerHealth;
     private float walkSpeed;
     private float sprintSpeed;
@@ -20,13 +20,16 @@ public class Movement : MonoBehaviour
     private Animator Animator;
     private bool secondAttack = false;
     private bool action = false;
+    public bool canInteract = false;
+    public ItemHolder itemHolder;
+    public Item item;
     void Start()
     {
         walkSpeed = PlayerStats.walkSpeed;
         sprintSpeed = PlayerStats.sprintSpeed;
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Animator = GetComponentInChildren<Animator>();
-        PlayerStamina = GetComponent<PlayerStamina>();
+        PlayerStamina = GetComponent<Stamina>();
         PlayerHealth = GetComponent<Health>();
     }
 
@@ -35,82 +38,71 @@ public class Movement : MonoBehaviour
     {
         movementDirection.x = Input.GetAxis("Horizontal");
         movementDirection.y = Input.GetAxis("Vertical");
-        
-        // heal
-        // interact
 
     }
     private void FixedUpdate()
     {
         if (action)
         {
+
             Rigidbody2D.velocity = movementDirection*0f;
         }
         if (Input.GetKey(KeyCode.LeftShift) && !isRolling && !action)
         {
+            PlayerStamina.drainStamina = true;
             Rigidbody2D.velocity = movementDirection * sprintSpeed;
 
         }
-        else if(!isRolling && !action)
-        {        
+
+        else if(!isRolling && !action && !Input.GetKey(KeyCode.LeftShift))
+        {
+            PlayerStamina.drainStamina = false;
             Rigidbody2D.velocity = movementDirection * walkSpeed;
         }
         if(Input.GetKeyDown(KeyCode.Mouse0) && !isRolling && !Input.GetKey(KeyCode.LeftShift) && !afterRoll && !secondAttack)
         {
             if (StaminaCheck())
             {
-                PlayerStamina.StaminaDrain(30f);
+                PlayerStamina.ConsumeStamina(30f);
                 Animator.SetTrigger("S_1");
                 StartCoroutine(Attack());
             }
-            //print("attack");
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isRolling && !Input.GetKey(KeyCode.LeftShift) && !afterRoll && secondAttack)
-        {
-            if (StaminaCheck())
-            {
-                PlayerStamina.StaminaDrain(30f);
-                Animator.SetTrigger("S_2");
-                StartCoroutine(Attack());
-            }
-            //print("attack");
-        }
-        // s_2
-
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isRolling && !Input.GetKey(KeyCode.LeftShift) && afterRoll)
         {
             if (StaminaCheck())
             {
-                PlayerStamina.StaminaDrain(30f);
+                PlayerStamina.ConsumeStamina(30f);
                 Animator.SetTrigger("S_R");
                 StartCoroutine(Attack());
             }
             
             //print("attack");
         }
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isRolling && Input.GetKey(KeyCode.LeftShift) && !afterRoll)
+        if (canInteract)
         {
-            if (StaminaCheck())
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                PlayerStamina.StaminaDrain(30f);
-                StartCoroutine(Dash());
-            }
-            Animator.SetTrigger("S_H");
+                //itemHolder.AddItem();
+                itemHolder.AddItem(item.itemContext);
+                item.Destoy();
+                //Destroy(item);
+                //print("picked up: " + item.itemContext);
 
+            }
         }
         if (Input.GetKeyDown(KeyCode.B) && movementDirection != Vector2.zero)
         {
             if (StaminaCheck())
             {
-                PlayerStamina.StaminaDrain(30f);
+                PlayerStamina.ConsumeStamina(30f);
                 StartCoroutine(Dash());
             }
 
         }
         if (Input.GetKeyDown(KeyCode.R) && !isRolling)
         {
-            // heal
+            PlayerHealth.Heal(80f);
         }
 
 
@@ -144,7 +136,7 @@ public class Movement : MonoBehaviour
     }
     public bool StaminaCheck()
     {
-        return PlayerStamina.stamina > PlayerStamina.minStamina;
+        return PlayerStamina.currentStamina > PlayerStamina.minStamina;
     }
 
 }

@@ -9,7 +9,7 @@ public class Attack : MonoBehaviour
     public bool isAttacking;
     private Animator WeaponAnimator;
     //public WeaponSO weapons;
-    public PlayerStamina stamina;
+    public Stamina stamina;
     public float weaponStamCost;
     public GameObject weapon;
     private Collider2D weaponCollider;

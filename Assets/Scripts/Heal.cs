@@ -9,8 +9,9 @@ public class Heal : MonoBehaviour
     public Health healthScript;
     public PlayerStats stats;
     public PlayerMovementOld playerMovement;
-    [HideInInspector]
+    public float healCharges = 7;
 
+    [HideInInspector]
     public bool isHealing;
     [HideInInspector]
     public float healDuration;
@@ -53,6 +54,6 @@ public class Heal : MonoBehaviour
         //playerMovement.moveSpeed = 3f;
 
         isHealing = false;
-        //healCharges -= 1;
+        healCharges -= 1;
     }
 }

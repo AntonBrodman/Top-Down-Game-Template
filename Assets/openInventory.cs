@@ -13,7 +13,9 @@ public class openInventory : MonoBehaviour
     //public GameObject weaponPoint;
     //public GameObject currentWeapon;
     public ItemHolder itemHolder;
+    public LoadItems itemLoader;
     public int ItemId;
+
     public enum buttonType
     {
         mainInventory,
@@ -66,6 +68,7 @@ public class openInventory : MonoBehaviour
     {
         ItemsPanel.SetActive(true);
         Inventory.SetActive(false);
+        itemLoader.Load();
     }
     public void SetId(int id)
     {

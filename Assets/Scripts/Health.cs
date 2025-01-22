@@ -49,20 +49,20 @@ public class Health : MonoBehaviour
 
         }
     }
-    //public void Heal(float heal)
-    //{
-    //    if (health >= entityStats.Health)
-    //    {
-    //        return;
-    //    }
-    //    else
-    //    {
-    //        health += heal;
-    //        if (health > entityStats.Health)
-    //        {
-    //            health = entityStats    .Health;
-    //        }
+    public void Heal(float heal)
+    {
+        if (health >= entityStats.Health)
+        {
+            return;
+        }
+        else
+        {
+            health += heal;
+            if (health > entityStats.Health)
+            {
+                health = entityStats.Health;
+            }
 
-    //    }
-    //}
+        }
+    }
 }
