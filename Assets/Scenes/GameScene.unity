@@ -1340,6 +1340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 596012221}
+  selectedId: 0
 --- !u!1 &641253154
 GameObject:
   m_ObjectHideFlags: 0
@@ -3861,6 +3862,10 @@ PrefabInstance:
     - target: {fileID: 818564991613231704, guid: 77d6a3f5ea66eef429df8dc5e34a7eab, type: 3}
       propertyPath: m_Name
       value: Fracture
+      objectReference: {fileID: 0}
+    - target: {fileID: 818564991613231704, guid: 77d6a3f5ea66eef429df8dc5e34a7eab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 818564991613231704, guid: 77d6a3f5ea66eef429df8dc5e34a7eab, type: 3}
       propertyPath: m_TagString

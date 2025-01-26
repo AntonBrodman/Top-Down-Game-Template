@@ -13,6 +13,7 @@ public class ProfileManager : MonoBehaviour
     public ProfileInformation currentProfile;
     ProfileInformation profile = new ProfileInformation();
     public int selectedId;
+    public PlayerStats stats;
 
     void Start()
     {
@@ -21,7 +22,11 @@ public class ProfileManager : MonoBehaviour
         //profile.profileName = "Player1";
 
         print(selectedId);
-        LoadData(selectedId);
+        if(selectedId != 0)
+        {
+            LoadData(selectedId);
+
+        }
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         //profileInformation = ProfileInformation.Instance;
     }
@@ -38,11 +43,14 @@ public class ProfileManager : MonoBehaviour
         string[] files = Directory.GetFiles(folderPath, "*.json");
         //ProfileInformation g = JsonUtility.FromJson<ProfileInformation>(files[profileId - 1]);
         // directory
-        string json = File.ReadAllText(files[profileId - 1]);
+        
+
+    string json = File.ReadAllText(files[profileId - 1]);
         profile = JsonUtility.FromJson<ProfileInformation>(json);
-
-        print(profile.health);
-
+        currentProfile = profile;
+        print(currentProfile.health);
+        stats.Health = currentProfile.health;
+        stats.Stamina = currentProfile.stamina;
         // load to heatlh, stamina
         // load position of player
         // load inventory lists to item holder
