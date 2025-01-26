@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
@@ -33,8 +34,24 @@ public class ProfileManager : MonoBehaviour
 
     public void SaveData()
     {
-        
+        if (selectedId != 0)
+        {
+
+            currentProfile.lastLocation = Player.position;
+            string folderPath = Path.Combine(Application.dataPath, "Profiles");
+
+            string[] files = Directory.GetFiles(folderPath, "*.json");
+
+            string json = File.ReadAllText(files[selectedId - 1]);
+            //rewrite saved data
+            profile.lastLocation = Player.position;
+            print(profile.lastLocation);
+            profile = JsonUtility.FromJson<ProfileInformation>(json);
+        }
+
         SceneManager.LoadScene("MainMenu");
+
+
     }
     public void LoadData(int profileId)
     {
@@ -52,9 +69,5 @@ public class ProfileManager : MonoBehaviour
         // load to heatlh, stamina
         // load position of player
         // load inventory lists to item holder
-    }
-    public void UptadeData()
-    {
-        // update stats on leveling up ...
     }
 }
