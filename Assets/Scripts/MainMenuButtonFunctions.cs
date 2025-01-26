@@ -20,8 +20,11 @@ public class MainMenuButtonFunctions : MonoBehaviour
     //public ProfileInformation selectedProfile;
     public void LoadGame()
     {
-        print("Loading current profile");
-        SceneManager.LoadScene("GameScene");
+        if(selectedProfileId != 0)
+        {
+            SceneManager.LoadScene("GameScene");
+
+        }
     }
     public void SelectProfile()
     {

@@ -43,9 +43,7 @@ public class ProfileManager : MonoBehaviour
         string[] files = Directory.GetFiles(folderPath, "*.json");
         //ProfileInformation g = JsonUtility.FromJson<ProfileInformation>(files[profileId - 1]);
         // directory
-        
-
-    string json = File.ReadAllText(files[profileId - 1]);
+        string json = File.ReadAllText(files[profileId - 1]);
         profile = JsonUtility.FromJson<ProfileInformation>(json);
         currentProfile = profile;
         print(currentProfile.health);

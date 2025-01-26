@@ -20,6 +20,7 @@ public class AiFollow : MonoBehaviour
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
     private Rigidbody2D Rigidbody2D;
+
     //private bool hasLineOfSight = false;
     public enum states{Patrol, Chase, Passive, Search, Combat };
 
@@ -39,23 +40,15 @@ public class AiFollow : MonoBehaviour
         if (Player == null) return;  // Ensure Player is found before continuing
         float distance = Vector2.Distance(transform.position, Player.position);
 
-        Follow();
+        Chase();
     }
     void StateManager(states s)
     {
 
         //switch(s)
     }
-    void Combat()
-    {
+ 
 
-    }
-    void Follow()
-    {
-
-        Vector2 direction = (Player.position - transform.position).normalized;
-        Rigidbody2D.velocity = direction * patrolSpeed;
-    }
     void Chase()
     {
 
@@ -88,20 +81,6 @@ public class AiFollow : MonoBehaviour
             {
                 currentWaypointIndex = 0;
             }
-        }
-    }
-    void Search()
-    {
-
-    }
-    private IEnumerator RandomNuber()
-    {
-        while (true)
-        {
-            int randomNumber = UnityEngine.Random.Range(1, 4);
-            Debug.Log(randomNumber);
-            yield return new WaitForSeconds(stateDuration);
-            yield return randomNumber;
         }
     }
 }
