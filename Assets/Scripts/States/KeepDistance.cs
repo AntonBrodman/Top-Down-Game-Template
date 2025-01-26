@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class KeepDistance : MonoBehaviour
 {   
-    void Passive(Transform Player) // running from palayer
+    void Passive(Transform target,float speed) 
     {
-        Vector2 directionToPlayer = Player.position - transform.position;
+        Vector2 directionToPlayer = target.position - transform.position;
         Vector2 moveDirection = -directionToPlayer.normalized;
-        //transform.Translate(moveDirection * EnemySpeed * Time.deltaTime);
+        transform.Translate(moveDirection * speed * Time.deltaTime);
     }
 }

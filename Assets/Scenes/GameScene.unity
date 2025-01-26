@@ -154,6 +154,65 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &15868469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15868452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!114 &15868475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15868452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d506f3f119fd546992f42ae340537b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: d5a263532917c944cb2adc613999d1fa, type: 2}
+  patrolSpeed: 0
+  chaseScript: {fileID: 15868476}
+  patrolScript: {fileID: 0}
+  detectRadius: 0
+--- !u!114 &15868476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15868452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9e199bdedad954ca97d1ea2d09ac87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &15868477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15868452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e36cb7e4f1de8c4990e78f03b33a21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1801744574}
+  - {fileID: 1403788982}
 --- !u!224 &75785636 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7810358885070796354, guid: 6c38eb8cba5c41c49909dd3177bc6958, type: 3}
@@ -3979,6 +4038,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 340509143, guid: 77d6a3f5ea66eef429df8dc5e34a7eab, type: 3}
     - {fileID: 1880842133, guid: 77d6a3f5ea66eef429df8dc5e34a7eab, type: 3}
+    - {fileID: 818564991613231709, guid: 77d6a3f5ea66eef429df8dc5e34a7eab, type: 3}
+    - {fileID: 818564991613231708, guid: 77d6a3f5ea66eef429df8dc5e34a7eab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 77d6a3f5ea66eef429df8dc5e34a7eab, type: 3}
 --- !u!1 &2091056938
 GameObject:
