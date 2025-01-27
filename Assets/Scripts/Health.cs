@@ -51,6 +51,7 @@ public class Health : MonoBehaviour
     }
     public void Heal(float heal)
     {
+
         if (health >= entityStats.Health)
         {
             return;

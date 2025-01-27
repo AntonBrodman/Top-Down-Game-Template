@@ -100,7 +100,7 @@ Toggles menu and inventory interface.
 When category of items is clicked script will render all items player has in Item holder script.
 ### Item holder
 Item holder serves as inventory for player where he has activa and all items stored so his inventory can be managed.
-### Open Inventory
+### Open Inventory <!--not used-->
 open inventory serves as functions for buttons in inventory ui. this script has two types of buttons. Ones that call render of all items, and others when clicked in this newly generated grid will equid coresponding item to player in scene.
 ## Saving Data
 Scripts for handling persisten data. These data are saved in assets so can be accessed between

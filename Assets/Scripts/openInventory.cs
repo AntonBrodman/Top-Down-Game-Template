@@ -25,7 +25,7 @@ public class openInventory : MonoBehaviour
 
     private void Start()
     {
-
+        print("gat");
     }
     public void OnButtonClick()
     {

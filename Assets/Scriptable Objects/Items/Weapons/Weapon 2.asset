@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c94eed8b9ad2b6439ba8de5c6375d99, type: 3}
-  m_Name: Charge
+  m_Name: Weapon 2
   m_EditorClassIdentifier: 
-  itemName: Sky
-  id: 11
-  damage: 70
-  staminaCost: 40
-  WeaponPrefab: {fileID: 4107396341051952157, guid: 6be9f0ee35b1f6147b69fa57d0320e12, type: 3}
-  WeaponSprite: {fileID: 21300000, guid: 20662ab5a567dfe45a15850c5cf4d015, type: 3}
-  WeaponIcon: {fileID: 21300000, guid: e5974711c40a04546b5e3d6b8a525f6d, type: 3}
+  itemName: FracturedSword
+  id: 12
+  damage: 75
+  staminaCost: 50
+  WeaponPrefab: {fileID: 3612852109936038404, guid: 62505674e3d0eb84f85c1ed6e1b9c4d4, type: 3}
+  WeaponSprite: {fileID: 21300000, guid: e717674261695504c848a894ac1cafb5, type: 3}
+  WeaponIcon: {fileID: 21300000, guid: b80c7718164dffe40b90c81f28fff37b, type: 3}

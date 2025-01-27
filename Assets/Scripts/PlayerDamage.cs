@@ -14,14 +14,14 @@ public class PlayerDamage : MonoBehaviour
 
     void Start()
     {
-        Setter();
-    }
-    public void Setter()
-    {
         weaponCollider = GetComponent<Collider2D>();
         movement = GetComponentInParent<Movement>();
         damage = weapon.damage;
-        //print("damage: " +damage);
+        print("damage: " + damage);
+    }
+    public void Setter()
+    {
+        
     }
     void Update()
     {
@@ -32,7 +32,7 @@ public class PlayerDamage : MonoBehaviour
     }
 
     void OnTriggerStay2D(Collider2D collision)
-    {        
+    {
         if (movement.isAttacking && !hit)
         {
             hit = true;
@@ -50,10 +50,6 @@ public class PlayerDamage : MonoBehaviour
                 // not an enemy
             }
         }
-    }
-    public void SetParent()
-    {
-
     }
 
 

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c94eed8b9ad2b6439ba8de5c6375d99, type: 3}
-  m_Name: FracturedSword
+  m_Name: Weapon 3
   m_EditorClassIdentifier: 
-  itemName: FracturedSword
-  id: 12
-  damage: 75
-  staminaCost: 50
-  WeaponPrefab: {fileID: 3612852109936038404, guid: 62505674e3d0eb84f85c1ed6e1b9c4d4, type: 3}
-  WeaponSprite: {fileID: 21300000, guid: e717674261695504c848a894ac1cafb5, type: 3}
-  WeaponIcon: {fileID: 21300000, guid: b80c7718164dffe40b90c81f28fff37b, type: 3}
+  itemName: Weapon 3
+  id: 10
+  damage: 58
+  staminaCost: 30
+  WeaponPrefab: {fileID: 4199079639121996367, guid: d0df5b4bc153b6345bb76ffe536d3c19, type: 3}
+  WeaponSprite: {fileID: 0}
+  WeaponIcon: {fileID: 21300000, guid: e7d5b6a9e8d8eb045846d2c9cc86064c, type: 3}

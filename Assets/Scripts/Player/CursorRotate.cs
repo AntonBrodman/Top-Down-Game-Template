@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CursorRotate : MonoBehaviour
 {
+    public int rotationOffset = -90;
     void Update()
     {
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -20,19 +21,20 @@ public class CursorRotate : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         // Apply the rotation to the object
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + rotationOffset));
         if (cursorDirection.x < 0)
         {
+
             //right from player
 
-            transform.localScale = new Vector3(transform.localScale.x, -Mathf.Abs(transform.localScale.y), transform.localScale.z);
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
 
             // transform y to negative
         }
         else
         {
             //left from player
-            transform.localScale = new Vector3(transform.localScale.x, Mathf.Abs(transform.localScale.y), transform.localScale.z);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
 
     }

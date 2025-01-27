@@ -35,8 +35,8 @@ public class ItemHolder : MonoBehaviour
 
                     GameObject weaponInstance = Instantiate(activeWeapon.WeaponPrefab, transform.position, transform.rotation);
                     weaponInstance.transform.SetParent(weaponPoint);
-                    weaponInstance.transform.localPosition = new Vector3(1f, 0, 0); 
-                    weaponInstance.transform.localRotation = Quaternion.Euler(0f, 0f, 270f);
+                    weaponInstance.transform.localPosition = new Vector3(0, 0, 0); 
+                    weaponInstance.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
                     playerDamage = weaponInstance.GetComponent<PlayerDamage>();
                     playerDamage.weapon = weapon;
                     playerDamage.Setter();

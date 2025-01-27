@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public PlayerStats PlayerStats;
     private Rigidbody2D Rigidbody2D;
     private Stamina PlayerStamina;
+    private Animator playerAnimator;
     private Health PlayerHealth;
     private float walkSpeed;
     private float sprintSpeed;
@@ -31,6 +32,7 @@ public class Movement : MonoBehaviour
         Animator = GetComponentInChildren<Animator>();
         PlayerStamina = GetComponent<Stamina>();
         PlayerHealth = GetComponent<Health>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -103,6 +105,9 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && !isRolling)
         {
             PlayerHealth.Heal(80f);
+            StartCoroutine(HealAnimation());
+            playerAnimator.SetTrigger("HealTrigger");
+            //play heal anim playerAnimator
         }
 
 
@@ -115,22 +120,29 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         isRolling = false;
         afterRoll = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         afterRoll = false;
-
-
     }
     private IEnumerator Attack()
     {
         action = true;
         isAttacking = true;
-        yield return new WaitForSeconds(0.75f);
-        secondAttack = true;
+        yield return new WaitForSeconds(0.5f);
         isAttacking = false;
         action = false;
 
-        yield return new WaitForSeconds(0.75f);
-        secondAttack = false;
+
+
+    }
+    private IEnumerator HealAnimation()
+    {
+        walkSpeed = walkSpeed / 2;
+
+
+        yield return new WaitForSeconds(1f);
+        walkSpeed = walkSpeed * 2;
+
+
 
 
     }
