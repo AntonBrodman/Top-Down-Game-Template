@@ -102,3 +102,21 @@ When category of items is clicked script will render all items player has in Ite
 Item holder serves as inventory for player where he has activa and all items stored so his inventory can be managed.
 ### Open Inventory
 open inventory serves as functions for buttons in inventory ui. this script has two types of buttons. Ones that call render of all items, and others when clicked in this newly generated grid will equid coresponding item to player in scene.
+## Saving Data
+Scripts for handling persisten data. These data are saved in assets so can be accessed between
+## Profile Handling
+Scripts for managment of profiles across scenes.
+#### SelectProfile
+Finalizes profile creation in Main menu profile creation section. If name input in not empty will create profile with input as name and profile preset scriptable object on button. Profile presets are stats for beggining profiles. In project health, stamina and strenght are examples. Created profile is parsed to json format and saved in Assets/Profofiles folder.
+#### Main menu button functions
+Manager for most of specific buttons in Main menu scene. All buttons in title screen use this script for on click functions.
+Return - returns from specific screen back to title screen.
+Load Game - loads game if profile id isnt 0.
+Render Profiles - renders all profiles into character selection screen.
+New Profile - opens profile creation screen.
+#### Profile Information
+Class for formating profile structure. Data used as example in template are name, id, health, stamina, strenght, location
+#### Profile Manager
+Manages profile loading and saving in Game scene. Upon entering screne sets player scriptable object with data to coresponding profile by id. If game is quit then it will rewrite profiles data and upload.
+#### Select profile
+In profile selection screen saves id of clicked profile button
