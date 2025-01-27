@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D Rigidbody2D;
     private Stamina PlayerStamina;
     private Animator playerAnimator;
-    private Health PlayerHealth;
+    private PlayerHealth PlayerHealth;
     private float walkSpeed;
     private float sprintSpeed;
     private float rollSpeed = 7f;
@@ -18,10 +18,11 @@ public class Movement : MonoBehaviour
     private bool isRolling = false;
     public bool afterRoll = false;
     public bool isAttacking = false;
-    private Animator Animator;
+    public Animator Animator;
     private bool secondAttack = false;
     private bool action = false;
     public bool canInteract = false;
+    public bool isHealing = false;
     public ItemHolder itemHolder;
     public Item item;
     void Start()
@@ -29,9 +30,9 @@ public class Movement : MonoBehaviour
         walkSpeed = PlayerStats.walkSpeed;
         sprintSpeed = PlayerStats.sprintSpeed;
         Rigidbody2D = GetComponent<Rigidbody2D>();
-        Animator = GetComponentInChildren<Animator>();
+        //Animator = GetComponentInChildren<Animator>();
         PlayerStamina = GetComponent<Stamina>();
-        PlayerHealth = GetComponent<Health>();
+        PlayerHealth = GetComponent<PlayerHealth>();
         playerAnimator = GetComponent<Animator>();
     }
 
@@ -102,12 +103,12 @@ public class Movement : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.R) && !isRolling)
+        if (Input.GetKeyDown(KeyCode.R) && !isRolling && !isHealing) 
         {
-            PlayerHealth.Heal(80f);
+            PlayerHealth.PlayerHealValue();
             StartCoroutine(HealAnimation());
             playerAnimator.SetTrigger("HealTrigger");
-            //play heal anim playerAnimator
+            
         }
 
 
@@ -136,15 +137,11 @@ public class Movement : MonoBehaviour
     }
     private IEnumerator HealAnimation()
     {
+        isHealing = true;
         walkSpeed = walkSpeed / 2;
-
-
         yield return new WaitForSeconds(1f);
         walkSpeed = walkSpeed * 2;
-
-
-
-
+        isHealing = false;
     }
     public bool StaminaCheck()
     {

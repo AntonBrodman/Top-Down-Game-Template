@@ -2849,13 +2849,13 @@ GameObject:
   - component: {fileID: 1330014059}
   - component: {fileID: 1330014060}
   - component: {fileID: 1330014070}
-  - component: {fileID: 1330014065}
   - component: {fileID: 1330014067}
   - component: {fileID: 1330014069}
   - component: {fileID: 1330014071}
   - component: {fileID: 1330014072}
   - component: {fileID: 1330014073}
   - component: {fileID: 1330014074}
+  - component: {fileID: 1330014075}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2918,26 +2918,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1330014065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330014057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e39a31fea71fae46bd13b9efb2c8553, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthScript: {fileID: 1330014067}
-  stats: {fileID: 11400000, guid: cfd38e936765ec74a947ae115bad42a6, type: 2}
-  playerMovement: {fileID: 0}
-  healCharges: 7
-  isHealing: 0
-  healDuration: 0.5
-  healValue: 100
-  healMovementSpeed: 0
 --- !u!114 &1330014067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2945,7 +2925,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330014057}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa96cb30489f34e40ad4e6e293fabb4c, type: 3}
   m_Name: 
@@ -2991,6 +2971,7 @@ MonoBehaviour:
   PlayerStats: {fileID: 11400000, guid: cfd38e936765ec74a947ae115bad42a6, type: 2}
   afterRoll: 0
   isAttacking: 0
+  Animator: {fileID: 95968352}
   canInteract: 0
   itemHolder: {fileID: 1330014069}
   item: {fileID: 1330014073}
@@ -3106,6 +3087,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1330014075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330014057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312599095a495d4589f7ba6e1c0b3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityStats: {fileID: 0}
+  healthSlider: {fileID: 0}
+  health: 0
+  healCharges: 0
+  healAmount: 0
+  healAmountUi: {fileID: 0}
 --- !u!1 &1349871560
 GameObject:
   m_ObjectHideFlags: 0
