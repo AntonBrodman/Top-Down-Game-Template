@@ -64,7 +64,7 @@ Scripts that are attached to player:
 * [Player Movement](#player-Movement)
 * [Player Heal](#player-heal)
 
-#### Player Input
+#### Player Input <!--Removed-->
 Player input handles inputs of player. All actions by player should be catched here and in Player Movement. Player input handles all non movement inputs, even if player action affects movement of player this action is here.
 
 Functions that Player Input handles are:
@@ -72,10 +72,63 @@ Functions that Player Input handles are:
 * Heal action
 * Attack action
 
-#### Movement
-Player movement handles input of movements and actions such as heals, attacks, interactions. Into movements counts basic WSAD movement and dodge ability binded on key B. There are other functions that alter movements, but they are in [Player Input](#player-heal). 
+### Movement
+Movement script manages actions of Player. Following script is dependand on many other scripts and game objects.
 
-#### Player Heal
+List of referenced scripts:
+* PlayerStats
+* ItemHolder
+* Item
+* Stamina
+* Player Health
+
+List of referenced game objects:
+* weaponPointAnimator
+* weaponAnimationPoint
+* Rigidbody2D
+* playerAnimator
+#### Movement logic
+Script is devided into multiple parts. First part in fixed update is handling of movement conditions. Movement speed of player is changed based on coditions.
+```
+        else if (isHealing)
+        {
+            Rigidbody2D.velocity = movementDirection * slow;
+
+        }
+```
+In this example players movement speed is slowed if player is healing. All movement speed altering logic is handled here.
+
+#### Action condition logic
+
+Second part of this script handles inputs through button inputs. If all conditions for specific action are met then code will execute coresponding action.
+
+```
+        if (Input.GetKeyDown(KeyCode.R) && !isRolling && !isHealing && !action) //heal
+        {
+            StartCoroutine(HealCoroutine());
+        }
+```
+Example of healing logic. Where if all conditions are met then HealCoroutine will be executed.
+
+#### Action logic
+
+Last part of the script is executed actions logic.  These are fucntions that are called when input.
+
+```
+    private IEnumerator HealCoroutine()
+    {
+        playerAnimator.SetTrigger("HealTrigger");
+        action = true;
+        isHealing = true;
+        yield return new WaitForSeconds(1f);
+        PlayerHealth.PlayerHealValue();
+        isHealing = false; 
+        action = false;
+    }
+```
+Example of heal coroutine logic that will be called in iput conditions.
+
+#### Player Heal<!--Changed-->
 Player heal is function for passing values between [stats of player](#player-stats) and its [health](#health). Function also takes some time and player is slowed for set time. All values are fetched from [Player stats](#player-stats).
 #### Cursor Rotate 
 Cursor rotate is for making referenced weapon to rotate towards mouse position.
