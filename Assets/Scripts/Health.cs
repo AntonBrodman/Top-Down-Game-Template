@@ -21,12 +21,12 @@ public class Health : MonoBehaviour
         //print(gameObject.tag);
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (healthSlider.value != health)
         {
             healthSlider.value = health;
+            print("hp bar updated");
         }
        
     }
@@ -36,13 +36,13 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             print("Died");
-            if(gameObject.tag == "Player")
-            {
-                SceneManager.LoadScene("Visuals");
+            //if(gameObject.tag == "Player")
+            //{
+            //    SceneManager.LoadScene("MainMenu");
 
 
-            }
-            else if(gameObject.tag == "Enemy")
+            //}
+            if(gameObject.tag == "Enemy")
             {
                 Destroy(gameObject);
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHealth : Health
@@ -11,12 +12,15 @@ public class PlayerHealth : Health
     void Start()
     {
         healAmountUi.text = healCharges.ToString();
+        health = entityStats.Health;
+        healthSlider.maxValue = entityStats.Health;
     }
 
-    void Update()
-    {
-        
-    }
+    //public override void Update()
+    //{
+    //    base.Update();
+    //}
+    
     public void PlayerHealValue()
     {
         if(healCharges > 0)
