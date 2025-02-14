@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeepDistance : MonoBehaviour
+public class PassiveScript : MonoBehaviour
 {   
-    void Passive(Transform target,float speed) 
+    public void Passive(Transform target,float speed) 
     {
+        //print("keeping distace");
+        
         Vector2 directionToPlayer = target.position - transform.position;
         Vector2 moveDirection = -directionToPlayer.normalized;
         transform.Translate(moveDirection * speed * Time.deltaTime);

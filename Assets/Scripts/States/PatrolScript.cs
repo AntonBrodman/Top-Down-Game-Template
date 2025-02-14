@@ -9,7 +9,8 @@ public class PatrolScript : MonoBehaviour
 
     public void Patrol(float speed)
     {
-        
+        //print("patroling");
+
         if (waypoints.Length == 0) return;
         Transform targetWaypoint = waypoints[currentWaypointIndex];
         transform.position = Vector2.MoveTowards(transform.position, targetWaypoint.position, speed * Time.deltaTime);

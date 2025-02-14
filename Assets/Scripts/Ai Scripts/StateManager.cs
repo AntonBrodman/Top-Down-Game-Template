@@ -7,14 +7,19 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     public EnemyStats stats;
-    private Transform Player;
+    public Transform Player;
     public float patrolSpeed;
-    public ChaseScript chaseScript;
-    public PatrolScript patrolScript;
+    //states
+    public ChaseScript chaseState;
+    public PatrolScript patrolState;
+    public CombatScript combatState;
+    public PassiveScript passiveState;
     public float detectRadius;
-
+    public float distanceKept;
     private Rigidbody2D rigidbody2D;
-   // public enum states { Patrol, Chase, Passive, Search, Combat };
+    public bool playerDetected = false;
+    public float chaseSpeed;
+   // public enum states { Patrol, Chase, Passive, Combat };
 
 
     void Start()
@@ -28,15 +33,45 @@ public class StateManager : MonoBehaviour
     {
         if (Player == null) return;
         float distance = Vector2.Distance(transform.position, Player.position);
-        if (distance < detectRadius)
+        if (distance < detectRadius && !playerDetected)
         {
-            chaseScript.Chase(Player, rigidbody2D, patrolSpeed);
+            print("detected");
+            playerDetected = true;
+        }
+        if (distance > detectRadius*2 && playerDetected)
+        {
+            
+            playerDetected = false;
+        }
+        switch (playerDetected)
+        {
+            case true:
+                if (distance < 2f)
+                {
+                    //print("combat");
+                    combatState.Combat();
+                }
+                else
+                {
+                    chaseState.Chase(Player, rigidbody2D, chaseSpeed);
 
+                }
+                break;
+            case false:
+                patrolState.Patrol(patrolSpeed);
+                
+                break;
         }
-        else
-        {
-            patrolScript.Patrol(patrolSpeed);
-        }
+
+        //if (distance < distanceKept)
+        //{
+        //    passiveState.Passive(Player, patrolSpeed);
+
+        //}
+        //else
+        //{
+            
+        //}
     }
 
 }
