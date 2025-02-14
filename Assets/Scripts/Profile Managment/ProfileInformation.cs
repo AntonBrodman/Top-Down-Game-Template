@@ -8,21 +8,13 @@ public class ProfileInformation
     public string profileName;
     public int id;
     public int health;
+    public float currentHealth;
+    public int healCharges;
     public int stamina;
     public int strength;
     public int dexterity;
     
 
     public Vector3 lastLocation;
-    //public List<WeaponSO> weapons = new List<WeaponSO>();
-
-
-    //public int profileId;
-    //public enum profilePreset{
-    //    profilePreset1,
-    //    profilePreset2,
-    //    profilePreset3,
-    //}
-    //public profilePreset profilePreset1;
 
 }

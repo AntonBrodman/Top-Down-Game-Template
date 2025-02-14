@@ -26,13 +26,13 @@ public class Health : MonoBehaviour
         if (healthSlider.value != health)
         {
             healthSlider.value = health;
-            print("hp bar updated");
+            //print("hp bar updated");
         }
        
     }
     public void TakeDamage(float demage)
     {
-        health -= demage    ;
+        health -= demage;
         if (health <= 0)
         {
             print("Died");

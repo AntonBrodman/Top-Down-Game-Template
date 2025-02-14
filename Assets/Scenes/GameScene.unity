@@ -1345,6 +1345,8 @@ MonoBehaviour:
   Player: {fileID: 596012221}
   selectedId: 0
   stats: {fileID: 11400000, guid: cfd38e936765ec74a947ae115bad42a6, type: 2}
+  maxProfiles: 0
+  health: {fileID: 1330014075}
 --- !u!1 &641253154
 GameObject:
   m_ObjectHideFlags: 0

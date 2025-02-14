@@ -1,0 +1,15 @@
+{
+    "profileName": "gY",
+    "id": 1,
+    "health": 500,
+    "currentHealth": 350.0,
+    "healCharges": 20,
+    "stamina": 80,
+    "strength": 0,
+    "dexterity": 0,
+    "lastLocation": {
+        "x": 4.697849273681641,
+        "y": 4.165046215057373,
+        "z": 0.0
+    }
+}
