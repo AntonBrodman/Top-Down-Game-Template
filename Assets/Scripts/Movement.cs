@@ -102,6 +102,9 @@ public class Movement : MonoBehaviour
             {
                 itemHolder.AddItem(item.itemContext);
                 item.Destoy();
+                PlayerHealth.healCharges = 20;
+
+
             }
         }
         if (Input.GetKeyDown(KeyCode.B) && movementDirection != Vector2.zero && !action) //roll

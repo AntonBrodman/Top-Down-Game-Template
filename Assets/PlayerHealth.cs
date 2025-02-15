@@ -16,18 +16,25 @@ public class PlayerHealth : Health
         healthSlider.maxValue = entityStats.Health;
     }
 
-    //public override void Update()
-    //{
-    //    base.Update();
-    //}
-    
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (healAmountUi.text != healCharges.ToString())
+        {
+            healAmountUi.text = healCharges.ToString();
+        }
+    }
+
+
     public void PlayerHealValue()
     {
         if(healCharges > 0)
         {
             Heal(healAmount);
             healCharges--;
-            healAmountUi.text = healCharges.ToString();
+            //healAmountUi.text = healCharges.ToString();
         }
 
 
