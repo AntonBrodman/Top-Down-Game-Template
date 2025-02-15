@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class ItemHolder : MonoBehaviour
 {
-    public List<WeaponSO> weapons = new List<WeaponSO>(); // Changed to List for dynamic addition
+    public List<WeaponSO> weapons = new List<WeaponSO>();
     public WeaponSO activeWeapon;
-    public List<ArmorSO> armors = new List<ArmorSO>(); // Changed to List for dynamic addition
-    public ArmorSO activeArmor;
+  
     public Transform weaponPoint;
     public PlayerDamage playerDamage;
 

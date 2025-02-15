@@ -1,0 +1,14 @@
+{
+    "profileName": "Du",
+    "id": 2,
+    "health": 300,
+    "currentHealth": 300.0,
+    "healCharges": 20,
+    "stamina": 150,
+    "inventory": [],
+    "lastLocation": {
+        "x": -0.43163418769836428,
+        "y": 8.760904312133789,
+        "z": 0.0
+    }
+}

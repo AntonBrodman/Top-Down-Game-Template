@@ -11,9 +11,10 @@ public class ProfileInformation
     public float currentHealth;
     public int healCharges;
     public int stamina;
-    public int strength;
-    public int dexterity;
-    
+    public List<WeaponSO> inventory = new List<WeaponSO>();
+    //public int strength;
+    //public int dexterity;
+
 
     public Vector3 lastLocation;
 

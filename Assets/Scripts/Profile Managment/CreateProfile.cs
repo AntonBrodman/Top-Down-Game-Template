@@ -37,10 +37,10 @@ public class CreateProfile : MonoBehaviour
             profile.health = preset.health;
             profile.currentHealth = preset.health;
             profile.stamina = preset.stamina;
-            profile.strength = preset.strength;
+            //profile.strength = preset.strength;
             profile.healCharges = 20;
             string folderPath = Path.Combine(Application.dataPath, "Profiles"); // folder where profiles are stored
-            string filePath = Path.Combine(folderPath, $"{profile.profileName}.json");// filepath for profile data
+            string filePath = Path.Combine(folderPath, $"{profile.profileName}.json");  // filepath for profile data
             int fileCount = 0;
 
             Debug.Log(fileCount);//amount of files

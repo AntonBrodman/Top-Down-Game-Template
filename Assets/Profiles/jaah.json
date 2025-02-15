@@ -1,0 +1,14 @@
+{
+    "profileName": "jaah",
+    "id": 3,
+    "health": 500,
+    "currentHealth": 500.0,
+    "healCharges": 20,
+    "stamina": 80,
+    "inventory": [],
+    "lastLocation": {
+        "x": 6.949248313903809,
+        "y": -0.07794572412967682,
+        "z": 0.0
+    }
+}
