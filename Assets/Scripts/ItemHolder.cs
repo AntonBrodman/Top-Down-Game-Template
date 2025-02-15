@@ -11,21 +11,18 @@ public class ItemHolder : MonoBehaviour
     public Transform weaponPoint;
     public PlayerDamage playerDamage;
 
-    public void SwapWeapon(int id)
+    public void SwapWeapon(int id) // Swaps weapon based on parametr id of a weapon
     {
         foreach (var weapon in weapons)
         {
             if(weapon.id == id)
             {
-                print(weapon.name);
                 if (activeWeapon.id == id)
                 {
-                    print("same weapon");
                     break;
                 }
                 else
                 {
-                    print(activeWeapon);
                     foreach (Transform child in weaponPoint.transform)
                     {
                         GameObject.Destroy(child.gameObject);
@@ -38,19 +35,15 @@ public class ItemHolder : MonoBehaviour
                     weaponInstance.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
                     playerDamage = weaponInstance.GetComponent<PlayerDamage>();
                     playerDamage.weapon = weapon;
-                    playerDamage.Setter();
 
                 }
             }
         }
 
     }
-    public void AddItem(WeaponSO item)
+    public void AddItem(WeaponSO item) // Adds scriptable object of a weapon to weapon list
     {
-
-        
         weapons.Add(item);
-        print(weapons);
     }
 }
 

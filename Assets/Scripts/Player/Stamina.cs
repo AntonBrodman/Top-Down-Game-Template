@@ -27,7 +27,6 @@ public class Stamina : MonoBehaviour
 
     void Start()
     {
-        //GameObject.Find(“aname”).GetComponent();
 
 
         maxStamina = stats.Stamina;

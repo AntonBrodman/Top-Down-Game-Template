@@ -10,15 +10,13 @@ public class Health : MonoBehaviour
     public EntityStats entityStats;
     public Slider healthSlider;
     public float health;
-    //public GameObject gameObject;
-    //public float healCharges;
+
 
     void Start()
     {
         health = entityStats.Health;
         healthSlider.maxValue = entityStats.Health;
-        //gameObject = 
-        //print(gameObject.tag);
+
     }
 
     public virtual void Update()
@@ -26,7 +24,6 @@ public class Health : MonoBehaviour
         if (healthSlider.value != health)
         {
             healthSlider.value = health;
-            //print("hp bar updated");
         }
        
     }
@@ -35,13 +32,6 @@ public class Health : MonoBehaviour
         health -= demage;
         if (health <= 0)
         {
-            print("Died");
-            //if(gameObject.tag == "Player")
-            //{
-            //    SceneManager.LoadScene("MainMenu");
-
-
-            //}
             if(gameObject.tag == "Enemy")
             {
                 Destroy(gameObject);
@@ -51,7 +41,6 @@ public class Health : MonoBehaviour
     }
     public void Heal(float heal)
     {
-
         if (health >= entityStats.Health)
         {
             return;

@@ -11,7 +11,6 @@ public class Item : MonoBehaviour
     private Collider2D pickUpCollider;
     public Movement movement;
     public GameObject item;
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;

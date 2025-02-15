@@ -53,13 +53,6 @@ public class MenuHandler : MonoBehaviour
         isBackpackActive = !isBackpackActive;
         backpack.SetActive(isBackpackActive);
     }
-    void LoadArmors()
-    {
-        print("load armors");
-    }
-    void LoadWeapons()
-    {
-        print("load weapons");
-    }
+
 }
 

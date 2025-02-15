@@ -17,12 +17,8 @@ public class PlayerDamage : MonoBehaviour
         weaponCollider = GetComponent<Collider2D>();
         movement = GetComponentInParent<Movement>();
         damage = weapon.damage;
-        print("damage: " + damage);
     }
-    public void Setter()
-    {
-        
-    }
+
     void Update()
     {
         if (!movement.isAttacking)
