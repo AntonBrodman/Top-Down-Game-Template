@@ -11,7 +11,6 @@ public class WeaponRotate : MonoBehaviour
     public EnemyStats stats;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -23,7 +22,7 @@ public class WeaponRotate : MonoBehaviour
     }
     private void RotateTowardsTarget(float offset)
     {
-        Vector2 direction = Player.position - transform.position; // 
+        Vector2 direction = Player.position - transform.position; 
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));

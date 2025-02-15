@@ -12,10 +12,6 @@ public class ProfileInformation
     public int healCharges;
     public int stamina;
     public List<WeaponSO> inventory = new List<WeaponSO>();
-    //public int strength;
-    //public int dexterity;
-
-
     public Vector3 lastLocation;
 
 }

@@ -21,7 +21,6 @@ public class MenuHandler : MonoBehaviour
 
     void Update()
     {
-        // Check if the ESC key is pressed
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ToggleMenu();
@@ -38,7 +37,6 @@ public class MenuHandler : MonoBehaviour
         {
             uiIsOpen = false;
         }
-        //Debug.Log(uiIsOpen);
     }
 
     void ToggleMenu()

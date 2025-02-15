@@ -13,11 +13,7 @@ public class LoadItems : MonoBehaviour
     public GameObject itemRenderer;
     public GameObject mainInventory;
     public GameObject weaponHolder;
-    //private void Start()
-    //{
-    //    Load();
-        
-    //}
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -29,10 +25,7 @@ public class LoadItems : MonoBehaviour
     }
     public void Load()
     {
-        // Remove all existing panels
         ClearPanels();
-
-        // Add new panels based on the items
         foreach (var item in items.weapons)
         {
             AddPanel(item);
@@ -41,7 +34,6 @@ public class LoadItems : MonoBehaviour
 
     void ClearPanels()
     {
-        // Iterate through all child objects of this transform and destroy them
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);

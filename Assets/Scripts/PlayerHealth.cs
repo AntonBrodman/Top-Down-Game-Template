@@ -12,7 +12,6 @@ public class PlayerHealth : Health
     void Start()
     {
         healAmountUi.text = healCharges.ToString();
-        //health = entityStats.Health;
         healthSlider.maxValue = entityStats.Health;
     }
 
@@ -34,9 +33,6 @@ public class PlayerHealth : Health
         {
             Heal(healAmount);
             healCharges--;
-            //healAmountUi.text = healCharges.ToString();
         }
-
-
     }
 }

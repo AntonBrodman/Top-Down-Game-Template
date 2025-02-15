@@ -23,7 +23,6 @@ public class CreateProfile : MonoBehaviour
 
     public void CrateProfileClass()
     {
-        //profileManager.AvailebleId();
         if (inputField.text == string.Empty)
         {
             Debug.Log("Missing Name");
@@ -33,18 +32,14 @@ public class CreateProfile : MonoBehaviour
         {
             ProfileInformation profile = new ProfileInformation();
             profile.profileName = inputField.text;
-            //profile.id;
             profile.health = preset.health;
             profile.currentHealth = preset.health;
             profile.stamina = preset.stamina;
-            //profile.strength = preset.strength;
             profile.healCharges = 20;
-            string folderPath = Path.Combine(Application.dataPath, "Profiles"); // folder where profiles are stored
-            string filePath = Path.Combine(folderPath, $"{profile.profileName}.json");  // filepath for profile data
+            string folderPath = Path.Combine(Application.dataPath, "Profiles");
+            string filePath = Path.Combine(folderPath, $"{profile.profileName}.json"); 
             int fileCount = 0;
-
-            Debug.Log(fileCount);//amount of files
-
+            Debug.Log(fileCount);
             string[] files = Directory.GetFiles(folderPath, "*.json");
 
             foreach (string file in files)
@@ -54,11 +49,7 @@ public class CreateProfile : MonoBehaviour
             }
             profile.id = fileCount + 1;
             print(fileCount);
-            // recalculate all ids
-
             string json = JsonUtility.ToJson(profile);
-
-
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 writer.Write(json);

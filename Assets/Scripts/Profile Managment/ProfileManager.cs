@@ -23,43 +23,30 @@ public class ProfileManager : MonoBehaviour
     {
 
         selectedId = MainMenuButtonFunctions.selectedProfileId;
-
-        //profile.profileName = "Player1";
-
         print(selectedId);
         if(selectedId != 0)
         {
             LoadData(selectedId);
 
         }
-        //Player = GameObject.FindGameObjectWithTag("Player");
-        //profileInformation = ProfileInformation.Instance;
+
     }
 
     public void SaveData()
     {
         if (selectedId != 0)
         {
-
             currentProfile.lastLocation = Player.transform.position;
-
-
             string folderPath = Path.Combine(Application.dataPath, "Profiles");
             string[] files = Directory.GetFiles(folderPath, "*.json");
             string json = File.ReadAllText(files[selectedId - 1]);
             string filePath = files[selectedId - 1];
-
-            //rewrite saved data
-
-
             profile = JsonUtility.FromJson<ProfileInformation>(json);
             print(health.health);
             profile.currentHealth = health.health;
             profile.lastLocation = Player.transform.position;
             print(profile.id);
             string updatedJson = JsonUtility.ToJson(profile, true);
-
-            // Save back to the file
             File.WriteAllText(filePath, updatedJson);
         }
 
@@ -72,8 +59,6 @@ public class ProfileManager : MonoBehaviour
         string folderPath = Path.Combine(Application.dataPath, "Profiles");
 
         string[] files = Directory.GetFiles(folderPath, "*.json");
-        //ProfileInformation g = JsonUtility.FromJson<ProfileInformation>(files[profileId - 1]);
-        // directory
         string json = File.ReadAllText(files[profileId - 1]);
         profile = JsonUtility.FromJson<ProfileInformation>(json);
         currentProfile = profile;
@@ -84,9 +69,6 @@ public class ProfileManager : MonoBehaviour
         stats.Health = currentProfile.health;
         health.health = currentProfile.currentHealth;
         stats.Stamina = currentProfile.stamina;
-        // load to heatlh, stamina
-        // load position of player
-        // load inventory lists to item holder
     }
     public void AvailebleId()
     {

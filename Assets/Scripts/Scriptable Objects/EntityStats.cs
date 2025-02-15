@@ -8,5 +8,4 @@ public class EntityStats : ScriptableObject
 {
     public string EntityName;
     public float Health;
-
 }

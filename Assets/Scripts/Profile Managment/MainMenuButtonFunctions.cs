@@ -14,24 +14,14 @@ public class MainMenuButtonFunctions : MonoBehaviour
     public GameObject profileCard;
     public GameObject profileGrid;
     public static int selectedProfileId;
-    //[SerializeField]
-    //public ProfileInformation selectedProfile;
-
-    //public ProfileInformation selectedProfile;
     public void LoadGame()
     {
         if(selectedProfileId != 0)
         {
             SceneManager.LoadScene("GameScene");
-
         }
     }
-    public void SelectProfile()
-    {
-        print(gameObject);
 
-
-    }
     public void NewProfile()
     {
         print("Create new profile");
@@ -63,17 +53,12 @@ public class MainMenuButtonFunctions : MonoBehaviour
 
         foreach (string file in files)
         {
-            // Read the content of each file
             string json = File.ReadAllText(file);
             AddProfilePanel(json);
-
-            //Debug.Log($"Contents of {file}: {json}");
-
         }
     }
     public void AddProfilePanel(string profileInfo)
     {
-        //print("added Profile panel");
         GameObject newPanel = Instantiate(profileCard, profileGrid.transform);
         TextMeshProUGUI panelText = newPanel.GetComponentInChildren<TextMeshProUGUI>();
         ProfileInformation g = JsonUtility.FromJson<ProfileInformation>(profileInfo);

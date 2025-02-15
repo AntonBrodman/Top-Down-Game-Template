@@ -48,7 +48,6 @@ public class StateManager : MonoBehaviour
             case true:
                 if (distance < 2f)
                 {
-                    //print("combat");
                     combatState.Combat();
                 }
                 else
@@ -63,15 +62,6 @@ public class StateManager : MonoBehaviour
                 break;
         }
 
-        //if (distance < distanceKept)
-        //{
-        //    passiveState.Passive(Player, patrolSpeed);
-
-        //}
-        //else
-        //{
-            
-        //}
     }
 
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamageArea : MonoBehaviour
 {
     private Collider2D damageArea;
-        private bool canDamage = true; // Flag to control damage timing
+        private bool canDamage = true; 
 
     public PlayerHealth playerHealth;
     public float damageCooldown = 1f;
@@ -31,10 +31,9 @@ public class DamageArea : MonoBehaviour
     }
     private IEnumerator DamageCooldown()
     {
-        canDamage = false; // Prevent further damage
-        yield return new WaitForSeconds(damageCooldown); // Wait for cooldown
-        canDamage = true; // Allow damage again
+        canDamage = false;
+        yield return new WaitForSeconds(damageCooldown);
+        canDamage = true;
+
     }
-
-
 }

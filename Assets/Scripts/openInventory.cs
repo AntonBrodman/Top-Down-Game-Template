@@ -10,8 +10,6 @@ public class openInventory : MonoBehaviour
 {
     public GameObject ItemsPanel;
     public GameObject Inventory;
-    //public GameObject weaponPoint;
-    //public GameObject currentWeapon;
     public ItemHolder itemHolder;
     public LoadItems itemLoader;
     public int ItemId;
@@ -40,29 +38,15 @@ public class openInventory : MonoBehaviour
             case buttonType.itemSelection:
                 GameObject weaponPoint = GameObject.Find("AnimationPoint");
 
-                Transform childTransform = weaponPoint.transform.GetChild(0); // Gets the first child
+                Transform childTransform = weaponPoint.transform.GetChild(0);
                 itemHolder = weaponPoint.GetComponentInParent<ItemHolder>();
 
-                //GameObject currentWeapon = childTransform.gameObject;
-                //Destroy(currentWeapon);
-                //print("id: " )
                 print("clicked: " + gameObject.name);
                 PlayerDamage PlayerDamage = GetComponent<PlayerDamage>();
-                //print(PlayerDamage.weapon.id);
                 ItemId = Int32.Parse(gameObject.name);
                 itemHolder.SwapWeapon(ItemId);
-                //print(itemHolder.activeWeapon + "  gay " + itemHolder.weapons);
-
-                //childTransform.parent = null;
-
-
-
-
                 break;
-
         }
-
-
     }
     void OpenItems()
     {

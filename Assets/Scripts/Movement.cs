@@ -94,7 +94,6 @@ public class Movement : MonoBehaviour
                 StartCoroutine(Attack(1/3));
             }
             
-            //print("attack");
         }
         if (canInteract)
         {

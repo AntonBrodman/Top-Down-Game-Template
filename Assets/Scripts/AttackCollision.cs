@@ -15,7 +15,6 @@ public class AttackCollision : MonoBehaviour
     {
         
         weaponCollider = weapon.GetComponent<Collider2D>();  
-        //weaponCollider.enabled = false;
         print(weaponCollider);
     }
 
