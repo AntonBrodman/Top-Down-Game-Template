@@ -30,6 +30,10 @@ public class Movement : MonoBehaviour
     public bool canInteract = false;
     public bool isHealing = false;
 
+    public GameObject projectilePrefab; // Assign your projectile prefab in the inspector
+    public Transform firePoint; // Assign a child GameObject that represents the fire point
+    public float projectileSpeed = 10f;
+    
     void Start()
     {
         walkSpeed = PlayerStats.walkSpeed;
@@ -49,7 +53,20 @@ public class Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(movementDirection.x > 0)
+        {
+            //Debug.Log("right");
+            //transform.localScale = new Vector3(1, 1, 1); // Facing right
 
+
+        }
+        else if(movementDirection.x < 0)
+        {
+            //Debug.Log("left");
+            //transform.localScale = new Vector3(-1, 1, 1); // Facing left
+
+
+        }
         if (Input.GetKey(KeyCode.LeftShift) && !isRolling && !action)
         {
             PlayerStamina.drainStamina = true;
@@ -62,39 +79,37 @@ public class Movement : MonoBehaviour
             PlayerStamina.drainStamina = false;
             Rigidbody2D.velocity = movementDirection * walkSpeed;
         }
-        else if (isAttacking)
-        {
-            Rigidbody2D.velocity = movementDirection * 0;
 
-        }
         else if (isHealing)
         {
             Rigidbody2D.velocity = movementDirection * slow;
 
         }
 
-        // Altering movement speed based on action
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !action && !afterRoll) //attack
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !action && !afterRoll) 
 
         {
             if (StaminaCheck())
             {
-                PlayerStamina.ConsumeStamina(30f);
+                PlayerStamina.ConsumeStamina(15f);
                 weaponPointAnimator.SetTrigger("S_1");
                 StartCoroutine(Attack(0.5f));
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !action && afterRoll) //attack
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !action && !afterRoll)
+
         {
-            if (StaminaCheck())
-            {
-                PlayerStamina.ConsumeStamina(30f);
-                weaponPointAnimator.SetTrigger("S_R");
-                StartCoroutine(Attack(1/3));
-            }
-            
+            //Debug.Log("fire");
+            StartCoroutine(FireCooldown());
+            //if (StaminaCheck())
+            //{
+            //    PlayerStamina.ConsumeStamina(30f);
+            //    weaponPointAnimator.SetTrigger("S_1");
+            //    StartCoroutine(Attack(0.5f));
+            //}
         }
+
         if (canInteract)
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -125,11 +140,10 @@ public class Movement : MonoBehaviour
     private IEnumerator Dash()
     {
         action = true;
-
         Vector2 rollDirection = movementDirection.normalized;
         Rigidbody2D.velocity = rollDirection * rollSpeed;
         isRolling = true;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.2f);
         action = false;
         isRolling = false;
         afterRoll = true;
@@ -141,9 +155,7 @@ public class Movement : MonoBehaviour
     {
         action = true;
         isAttacking = true;
-
         yield return new WaitForSeconds(duration);
-
         isAttacking = false;
         action = false;
     }
@@ -161,5 +173,32 @@ public class Movement : MonoBehaviour
     {
         return PlayerStamina.currentStamina > PlayerStamina.minStamina;
     }
+    void Fire()
+    {
+        // Instantiate the projectile with 180-degree rotation
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0, 0, 180));
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+        {
+            // Use firePoint.up instead of firePoint.right to correctly fire in the intended direction
+            rb.velocity = -firePoint.up * projectileSpeed; // Moves correctly in the expected leftward direction
+            Debug.Log(rb.velocity);
+        }
+
+        Destroy(projectile, 2f); // Destroy bullet after 3 seconds
+    }
+    private IEnumerator FireCooldown()
+    {
+
+        action = true;
+        isAttacking = true;
+        Fire();
+        yield return new WaitForSeconds(0.5f);
+        isAttacking = false;
+        action = false;
+    }
+
+
 
 }

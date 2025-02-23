@@ -15,10 +15,10 @@ MonoBehaviour:
   EntityName: 
   Health: 400
   Stamina: 100
-  walkSpeed: 2
-  sprintSpeed: 3
+  walkSpeed: 1.4
+  sprintSpeed: 1.9
   dashSpeed: 20
-  dashDuration: 0.2
+  dashDuration: 0.1
   dashCooldown: 1
   rollCost: 30
   healDuration: 0.5
