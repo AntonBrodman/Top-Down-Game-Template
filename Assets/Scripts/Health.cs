@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        health = entityStats.Health;
+        //health = entityStats.Health;
         healthSlider.maxValue = entityStats.Health;
 
     }

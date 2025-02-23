@@ -9,10 +9,13 @@ public class PlayerHealth : Health
     public int healCharges;
     public int healAmount;
     public TextMeshProUGUI healAmountUi;
+    public PlayerLevels playerLevels;
     void Start()
     {
         healAmountUi.text = healCharges.ToString();
-        healthSlider.maxValue = entityStats.Health;
+        //healthSlider.maxValue = entityStats.Health;
+       // health = playerLevels.maxHealth;
+        //.Log("max hp: " + playerLevels.maxHealth);
     }
 
 

@@ -2699,6 +2699,7 @@ MonoBehaviour:
   healCharges: 20
   healAmount: 200
   healAmountUi: {fileID: 152100950}
+  playerLevels: {fileID: 1330014077}
 --- !u!114 &1330014076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2723,15 +2724,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e28d2e3035b84842b4659d1431b01e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeClassName: 
   healthLevel: 2
   maxHealth: 0
-  staminaLevel: 0
+  staminaLevel: 1
   maxStamina: 0
-  strenghtLevel: 0
+  strenghtLevel: 1
   strenghtValue: 0
-  skillLevel: 0
+  skillLevel: 1
   skillValue: 0
-  arcaneLevel: 0
+  arcaneLevel: 1
   arcaneValue: 0
   startingClasses:
   - {fileID: 11400000, guid: febe9e3e16c1392459217f2ce22b31cf, type: 2}

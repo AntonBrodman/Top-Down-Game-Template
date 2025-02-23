@@ -18,6 +18,7 @@ public class PlayerLevels : MonoBehaviour
     public int arcaneValue;
 
     public StartingClass[] startingClasses;
+    public PlayerHealth playerHealth;
 
     //[SerializeField]
     public StatsValues stats;
@@ -79,6 +80,8 @@ public class PlayerLevels : MonoBehaviour
         }
         maxHealth = CalculateMaxHealth(healthLevel, stats.healthValues);
         Debug.Log(maxHealth);
+        playerHealth.health = maxHealth;
+        playerHealth.healthSlider.maxValue = maxHealth;
         maxStamina = CalculateMaxHealth(staminaLevel, stats.staminaValues);
         Debug.Log(maxStamina);
 
@@ -98,11 +101,11 @@ public class PlayerLevels : MonoBehaviour
 
     public int CalculateMaxHealth(int levelValue, int[] array)
     {
-        if (levelValue < 1 || levelValue > array.Length)
-        {
-            Debug.LogError("Level value is out of range!");
-            return 0; // Return a default value to prevent errors
-        }
+        //if (levelValue < 1 || levelValue > array.Length)
+        //{
+        //    Debug.LogError("Level value is out of range!");
+        //    return 0; // Return a default value to prevent errors
+        //}
 
         Debug.Log(array[levelValue - 1]); // Debugging
         return array[levelValue - 1]; // Return the correct health value
