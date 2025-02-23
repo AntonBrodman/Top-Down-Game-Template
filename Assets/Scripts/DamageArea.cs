@@ -14,7 +14,6 @@ public class DamageArea : MonoBehaviour
     void Start()
     {
         damageArea = GetComponent<Collider2D>();
-        print("gg");
     }
 
 

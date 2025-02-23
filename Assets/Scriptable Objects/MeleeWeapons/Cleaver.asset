@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cleaver
   m_EditorClassIdentifier: 
   Name: Cleaver
-  BaseDamage: 0
-  Scaling: 0
-  StaminaCost: 0
+  BaseDamage: 80
+  Scaling: 1
+  StaminaCost: 15

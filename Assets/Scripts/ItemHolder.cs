@@ -34,7 +34,7 @@ public class ItemHolder : MonoBehaviour
                     weaponInstance.transform.localPosition = new Vector3(0, 0, 0); 
                     weaponInstance.transform.localRotation = Quaternion.Euler(0f, 0f, 0);
                     playerDamage = weaponInstance.GetComponent<PlayerDamage>();
-                    playerDamage.weapon = weapon;
+                    //playerDamage.weapon = weapon;
 
                 }
             }

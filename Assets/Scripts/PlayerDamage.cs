@@ -5,18 +5,27 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
-    public float damage;
+    public float totalDamage;
     public Collider2D weaponCollider;
-    public WeaponSO weapon;
+    public MeleeWeaponScriptableObject weapon;
+
     public Movement movement;
+
     private bool hit = false;
+
+    public PlayerLevels playerLevels;
+
+    public float strenghtValue;
+
 
 
     void Start()
     {
+        //strenghtValue = playerLevels.strenghtValue;
         weaponCollider = GetComponent<Collider2D>();
         movement = GetComponentInParent<Movement>();
-        damage = weapon.damage;
+        //totalDamage = weapon.BaseDamage + weapon.Scaling*strenghtValue;
+        //Debug.Log(weapon.BaseDamage + " " + weapon.Scaling +" "+  strenghtValue);
     }
 
     void Update()
@@ -37,8 +46,8 @@ public class PlayerDamage : MonoBehaviour
                 Health health = collision.gameObject.GetComponent<Health>();
                 if (health != null)
                 {
-                    print(damage + " hit");
-                    health.TakeDamage(damage);
+                    print(totalDamage + " hit");
+                    health.TakeDamage(totalDamage);
                 }
             }
             else

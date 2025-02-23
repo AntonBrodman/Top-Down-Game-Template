@@ -19,11 +19,14 @@ public class PlayerLevels : MonoBehaviour
 
     public StartingClass[] startingClasses;
     public PlayerHealth playerHealth;
+    public PlayerDamage damage;
 
     //[SerializeField]
     public StatsValues stats;
     void Start()
     {
+        damage = GetComponentInChildren<PlayerDamage>();
+        
         activeClassName = RenderStartingClasses.selectedClass;
         switch (RenderStartingClasses.selectedClass)
         {
@@ -79,20 +82,22 @@ public class PlayerLevels : MonoBehaviour
             healthLevel = 26;
         }
         maxHealth = CalculateMaxHealth(healthLevel, stats.healthValues);
-        Debug.Log(maxHealth);
+        //Debug.Log(maxHealth);
         playerHealth.health = maxHealth;
         playerHealth.healthSlider.maxValue = maxHealth;
         maxStamina = CalculateMaxHealth(staminaLevel, stats.staminaValues);
-        Debug.Log(maxStamina);
+        //Debug.Log(maxStamina);
 
         strenghtValue = CalculateMaxHealth(strenghtLevel, stats.strenghtValues);
-        Debug.Log(strenghtValue);
-
+        //Debug.Log(strenghtValue);
+        //damage.strenghtValue = strenghtValue;
+        damage.totalDamage = damage.weapon.BaseDamage + damage.weapon.Scaling * strenghtValue;
+        Debug.Log(damage.weapon.BaseDamage + " " + damage.weapon.Scaling + " " + strenghtValue);
         skillValue = CalculateMaxHealth(skillLevel, stats.skillValues);
-        Debug.Log(skillValue);
+        //Debug.Log(skillValue);
 
         arcaneValue = CalculateMaxHealth(arcaneLevel, stats.arcaneValues);
-        Debug.Log(arcaneValue);
+        //Debug.Log(arcaneValue);
 
 
 
